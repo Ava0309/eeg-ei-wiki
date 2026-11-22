@@ -1,0 +1,68 @@
+[
+  {
+    "id": "S01",
+    "authors": "Donoghue et al.",
+    "year": 2020,
+    "title": "Parameterizing neural power spectra into periodic and aperiodic components",
+    "doi": "10.1038/s41593-020-00744-x",
+    "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8106550/",
+    "access": "FULL_ACCESS",
+    "ingest": "INCOMPLETE",
+    "locator": "Results: spectral parameterization; Methods: Fitting algorithm; Fig. 2"
+  },
+  {
+    "id": "S02",
+    "authors": "Donoghue, Schaworonkow & Voytek",
+    "year": 2022,
+    "title": "Methodological considerations for studying neural oscillations",
+    "doi": "10.1111/ejn.15361",
+    "url": "https://old.postlab.psych.wisc.edu/files/9516/2715/7291/Donoghue2021_MethodologicalConsiderationsOscillations.pdf",
+    "access": "FULL_ACCESS",
+    "ingest": "INCOMPLETE",
+    "locator": "sections 2, 4 and Figures 1, 3"
+  },
+  {
+    "id": "S03",
+    "authors": "Cochrane et al.",
+    "year": 2026,
+    "title": "Concurrent Multimodal Imaging Demonstrates That EEG-Based Excitation/Inhibition Balance Reflects Glutamate and GABA Balance",
+    "doi": "10.1523/JNEUROSCI.1394-25.2026",
+    "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13064800/",
+    "access": "FULL_ACCESS",
+    "ingest": "INCOMPLETE",
+    "locator": "Materials and Methods: Experimental design; MRS-based E/I ratio; Abstract"
+  },
+  {
+    "id": "S04",
+    "authors": "Gao, Peterson & Voytek",
+    "year": 2017,
+    "title": "Inferring synaptic excitation/inhibition balance from field potentials",
+    "doi": "10.1016/j.neuroimage.2017.06.078",
+    "url": "https://inc.ucsd.edu/publications/Gao-NeuroImage2017.pdf",
+    "access": "FULL_ACCESS",
+    "ingest": "INCOMPLETE",
+    "locator": "§2.1, Fig. 1; §3; §4"
+  },
+  {
+    "id": "S05",
+    "authors": "Salvatore et al.",
+    "year": 2024,
+    "title": "Periodic and aperiodic changes to cortical EEG in response to pharmacological manipulation",
+    "doi": "10.1152/jn.00445.2023",
+    "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11305649/",
+    "access": "FULL_ACCESS",
+    "ingest": "INCOMPLETE",
+    "locator": "EEG Analysis; Discussion"
+  },
+  {
+    "id": "S06",
+    "authors": "Sun & Mou",
+    "year": 2023,
+    "title": "Survey on the research direction of EEG-based signal processing",
+    "doi": "10.3389/fnins.2023.1203059",
+    "url": "https://www.frontiersin.org/journals/neuroscience/articles/10.3389/fnins.2023.1203059/full",
+    "access": "FULL_ACCESS",
+    "ingest": "INCOMPLETE",
+    "locator": "§1.1, §3, §4"
+  }
+]

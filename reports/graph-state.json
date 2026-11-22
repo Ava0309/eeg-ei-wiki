@@ -1,0 +1,7 @@
+{
+  "node": "N4 wiki lint",
+  "result": "FAIL",
+  "next": "N1 source ingest / N3 wiki integration",
+  "retries": 0,
+  "note": "No automatic repair; operator must resolve failed conditions, maximum three local attempts."
+}

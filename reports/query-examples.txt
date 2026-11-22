@@ -1,0 +1,489 @@
+QUERY: What is an aperiodic exponent?
+EXIT: 0
+
+--- wiki/concepts/aperiodic-exponent.md (score 8; 待審) ---
+# Aperiodic Exponent
+
+無 knee 的示意關係 P(f)=A/f^β；f 是頻率、P 是功率、A 是尺度、β 是指數。在 log-log 圖斜率為 −β；它不是直接測量的突觸 E/I 比。
+
+來源：[S01](../papers/S01.md)，Methods: Fitting algorithm。目前為待審草稿。
+
+S01: https://pmc.ncbi.nlm.nih.gov/articles/PMC8106550/ — Results: spectral parameterization; Methods: Fitting algorithm; Fig. 2
+
+--- wiki/papers/S01.md (score 4; 待審) ---
+# S01 — Parameterizing neural power spectra into periodic and aperiodic components
+
+- 作者與年份：Donoghue et al. (2020)
+- DOI：[10.1038/s41593-020-00744-x](https://doi.org/10.1038/s41593-020-00744-x)
+- 全文來源：https://pmc.ncbi.nlm.nih.gov/articles/PMC8106550/
+- 取得狀態：FULL_ACCESS；Ingest：INCOMPLETE（尚未完成逐篇獨立核對）
+
+## 目的
+用頻譜模型分離非週期成分與候選振盪峰。
+
+## 資料與方法
+模擬頻譜及 EEG、MEG、LFP 範例；模型以非週期背景與 Gaussian 峰擬合。
+
+## 發現與限制
+峰值與指數為模型估計；錯誤的 knee 假設或峰形會造成偏差。
+
+## 可定位證據
+Results: spectral parameterization; Methods: Fitting algorithm; Fig. 2。原文為準；不從摘要之外推數字。
+
+## 與其他文獻
+比較 [跨文獻頁](../comparisons/evidence.md)，特別留意量測模態與條件不同。
+
+## Ingest check
+全文入口：FULL_ACCESS；獨立逐項檢查及 Wiki 整合仍待完成，因此不得列入已完成全文 ingest。
+
+S01: https://pmc.ncbi.nlm.nih.gov/articles/PMC8106550/ — Results: spectral parameterization; Methods: Fitting algorithm; Fig. 2
+
+--- wiki/papers/S05.md (score 4; 待審) ---
+# S05 — Periodic and aperiodic changes to cortical EEG in response to pharmacological manipulation
+
+- 作者與年份：Salvatore et al. (2024)
+- DOI：[10.1152/jn.00445.2023](https://doi.org/10.1152/jn.00445.2023)
+- 全文來源：https://pmc.ncbi.nlm.nih.gov/articles/PMC11305649/
+- 取得狀態：FULL_ACCESS；Ingest：INCOMPLETE（尚未完成逐篇獨立核對）
+
+## 目的
+測試藥理及化學遺傳操弄下非週期指數的解釋。
+
+## 資料與方法
+以清醒活動小鼠皮質 EEG，使用 FOOOF 比較多種操弄。
+
+## 發現與限制
+作者指出 ketamine 與 Gi DREADDs 等結果不支持把指數視為可靠 E/I 比值指標；行為狀態重要。
+
+## 可定位證據
+EEG Analysis; Discussion。原文為準；不從摘要之外推數字。
+
+## 與其他文獻
+比較 [跨文獻頁](../comparisons/evidence.md)，特別留意量測模態與條件不同。
+
+## Ingest check
+全文入口：FULL_ACCESS；獨立逐項檢查及 Wiki 整合仍待完成，因此不得列入已完成全文 ingest。
+
+S05: https://pmc.ncbi.nlm.nih.gov/articles/PMC11305649/ — EEG Analysis; Discussion
+
+--- wiki/concepts/periodic-aperiodic.md (score 4; 待審) ---
+# Periodic vs. Aperiodic Components
+
+頻譜峰可能反映候選振盪；寬頻非週期背景也會影響頻帶功率。有功率不必然證明存在振盪。
+
+來源：[S02](../papers/S02.md)，§2, Fig. 1。目前為待審草稿。
+
+S02: https://old.postlab.psych.wisc.edu/files/9516/2715/7291/Donoghue2021_MethodologicalConsiderationsOscillations.pdf — sections 2, 4 and Figures 1, 3
+
+--- wiki/comparisons/evidence.md (score 1; 待審) ---
+# 研究比較（待審草稿）
+
+| 研究 | 對象與測量 | 結果／意義 | 重要限制 |
+|---|---|---|---|
+| [S03](../papers/S03.md) | 睡眠人類，同時 EEG 與視覺皮質 MRS | EEG 指標與 Glx/GABA+ 的關聯 | 不等同突觸電流，不能推論因果或推廣至所有狀態 |
+| [S04](../papers/S04.md) | 模型、大鼠 LFP 與獼猴 ECoG | 提出頻譜與 E/I 的模型關係 | 量測非頭皮 EEG；模型假設有限 |
+| [S05](../papers/S05.md) | 活動小鼠皮質 EEG，藥理／化學遺傳操弄 | 部分結果挑戰 exponent 的可靠性 | 操弄與行為狀態不同，不能直接推廣 |
+
+差異不應簡化成互相推翻：物種、模態、實驗狀態與被比較的 E/I 指標均不同。S03、S05 全文已取得，草稿仍待逐項核對。
+
+S03: https://pmc.ncbi.nlm.nih.gov/articles/PMC13064800/ — Materials and Methods: Experimental design; MRS-based E/I ratio; Abstract
+S04: https://inc.ucsd.edu/publications/Gao-NeuroImage2017.pdf — §2.1, Fig. 1; §3; §4
+S05: https://pmc.ncbi.nlm.nih.gov/articles/PMC11305649/ — EEG Analysis; Discussion
+
+QUERY: How does spectral parameterization work?
+EXIT: 0
+
+--- wiki/concepts/spectral-parameterization.md (score 8; 待審) ---
+# Spectral Parameterization
+
+將對數功率譜建模為非週期背景與候選峰之和；逐次擬合背景與峰，再檢視殘差和模型假設。
+
+來源：[S01](../papers/S01.md)，Fig. 2; Methods: Fitting algorithm。目前為待審草稿。
+
+S01: https://pmc.ncbi.nlm.nih.gov/articles/PMC8106550/ — Results: spectral parameterization; Methods: Fitting algorithm; Fig. 2
+
+--- wiki/papers/S01.md (score 2; 待審) ---
+# S01 — Parameterizing neural power spectra into periodic and aperiodic components
+
+- 作者與年份：Donoghue et al. (2020)
+- DOI：[10.1038/s41593-020-00744-x](https://doi.org/10.1038/s41593-020-00744-x)
+- 全文來源：https://pmc.ncbi.nlm.nih.gov/articles/PMC8106550/
+- 取得狀態：FULL_ACCESS；Ingest：INCOMPLETE（尚未完成逐篇獨立核對）
+
+## 目的
+用頻譜模型分離非週期成分與候選振盪峰。
+
+## 資料與方法
+模擬頻譜及 EEG、MEG、LFP 範例；模型以非週期背景與 Gaussian 峰擬合。
+
+## 發現與限制
+峰值與指數為模型估計；錯誤的 knee 假設或峰形會造成偏差。
+
+## 可定位證據
+Results: spectral parameterization; Methods: Fitting algorithm; Fig. 2。原文為準；不從摘要之外推數字。
+
+## 與其他文獻
+比較 [跨文獻頁](../comparisons/evidence.md)，特別留意量測模態與條件不同。
+
+## Ingest check
+全文入口：FULL_ACCESS；獨立逐項檢查及 Wiki 整合仍待完成，因此不得列入已完成全文 ingest。
+
+S01: https://pmc.ncbi.nlm.nih.gov/articles/PMC8106550/ — Results: spectral parameterization; Methods: Fitting algorithm; Fig. 2
+
+QUERY: Can EEG reliably estimate E/I balance?
+EXIT: 0
+
+--- wiki/papers/S03.md (score 8; 待審) ---
+# S03 — Concurrent Multimodal Imaging Demonstrates That EEG-Based Excitation/Inhibition Balance Reflects Glutamate and GABA Balance
+
+- 作者與年份：Cochrane et al. (2026)
+- DOI：[10.1523/JNEUROSCI.1394-25.2026](https://doi.org/10.1523/JNEUROSCI.1394-25.2026)
+- 全文來源：https://pmc.ncbi.nlm.nih.gov/articles/PMC13064800/
+- 取得狀態：FULL_ACCESS；Ingest：INCOMPLETE（尚未完成逐篇獨立核對）
+
+## 目的
+探討同時量測 EEG 指標與 MRS 代謝物比例之關係。
+
+## 資料與方法
+睡眠人類的早期視覺皮質；比較受試者之間與受試者內的關聯。
+
+## 發現與限制
+MRS 使用 Glx/GABA+，含 glutamine 與共編輯巨分子，並非突觸電流比；相關不等於因果。
+
+## 可定位證據
+Materials and Methods: Experimental design; MRS-based E/I ratio; Abstract。原文為準；不從摘要之外推數字。
+
+## 與其他文獻
+比較 [跨文獻頁](../comparisons/evidence.md)，特別留意量測模態與條件不同。
+
+## Ingest check
+全文入口：FULL_ACCESS；獨立逐項檢查及 Wiki 整合仍待完成，因此不得列入已完成全文 ingest。
+
+S03: https://pmc.ncbi.nlm.nih.gov/articles/PMC13064800/ — Materials and Methods: Experimental design; MRS-based E/I ratio; Abstract
+
+--- wiki/papers/S04.md (score 5; 待審) ---
+# S04 — Inferring synaptic excitation/inhibition balance from field potentials
+
+- 作者與年份：Gao, Peterson & Voytek (2017)
+- DOI：[10.1016/j.neuroimage.2017.06.078](https://doi.org/10.1016/j.neuroimage.2017.06.078)
+- 全文來源：https://inc.ucsd.edu/publications/Gao-NeuroImage2017.pdf
+- 取得狀態：FULL_ACCESS；Ingest：INCOMPLETE（尚未完成逐篇獨立核對）
+
+## 目的
+提出透過場電位頻譜斜率推論 E/I 的模型。
+
+## 資料與方法
+模型假設興奮與抑制輸入具有不同時間常數；並分析大鼠海馬 LFP 與獼猴 ECoG。
+
+## 發現與限制
+模型與特定動物場電位結果不能直接等同人類頭皮 EEG；斜率非 E/I 的直接量測。
+
+## 可定位證據
+§2.1, Fig. 1; §3; §4。原文為準；不從摘要之外推數字。
+
+## 與其他文獻
+比較 [跨文獻頁](../comparisons/evidence.md)，特別留意量測模態與條件不同。
+
+## Ingest check
+全文入口：FULL_ACCESS；獨立逐項檢查及 Wiki 整合仍待完成，因此不得列入已完成全文 ingest。
+
+S04: https://inc.ucsd.edu/publications/Gao-NeuroImage2017.pdf — §2.1, Fig. 1; §3; §4
+
+--- wiki/papers/S05.md (score 4; 待審) ---
+# S05 — Periodic and aperiodic changes to cortical EEG in response to pharmacological manipulation
+
+- 作者與年份：Salvatore et al. (2024)
+- DOI：[10.1152/jn.00445.2023](https://doi.org/10.1152/jn.00445.2023)
+- 全文來源：https://pmc.ncbi.nlm.nih.gov/articles/PMC11305649/
+- 取得狀態：FULL_ACCESS；Ingest：INCOMPLETE（尚未完成逐篇獨立核對）
+
+## 目的
+測試藥理及化學遺傳操弄下非週期指數的解釋。
+
+## 資料與方法
+以清醒活動小鼠皮質 EEG，使用 FOOOF 比較多種操弄。
+
+## 發現與限制
+作者指出 ketamine 與 Gi DREADDs 等結果不支持把指數視為可靠 E/I 比值指標；行為狀態重要。
+
+## 可定位證據
+EEG Analysis; Discussion。原文為準；不從摘要之外推數字。
+
+## 與其他文獻
+比較 [跨文獻頁](../comparisons/evidence.md)，特別留意量測模態與條件不同。
+
+## Ingest check
+全文入口：FULL_ACCESS；獨立逐項檢查及 Wiki 整合仍待完成，因此不得列入已完成全文 ingest。
+
+S05: https://pmc.ncbi.nlm.nih.gov/articles/PMC11305649/ — EEG Analysis; Discussion
+
+--- wiki/papers/S06.md (score 4; 待審) ---
+# S06 — Survey on the research direction of EEG-based signal processing
+
+- 作者與年份：Sun & Mou (2023)
+- DOI：[10.3389/fnins.2023.1203059](https://doi.org/10.3389/fnins.2023.1203059)
+- 全文來源：https://www.frontiersin.org/journals/neuroscience/articles/10.3389/fnins.2023.1203059/full
+- 取得狀態：FULL_ACCESS；Ingest：INCOMPLETE（尚未完成逐篇獨立核對）
+
+## 目的
+回顧 EEG 訊號處理、特徵與分類方法。
+
+## 資料與方法
+綜述預處理、特徵萃取與機器學習／深度學習應用。
+
+## 發現與限制
+跨受試者泛化仍是挑戰；綜述不能作為個別分類效能的保證。
+
+## 可定位證據
+§1.1, §3, §4。原文為準；不從摘要之外推數字。
+
+## 與其他文獻
+比較 [跨文獻頁](../comparisons/evidence.md)，特別留意量測模態與條件不同。
+
+## Ingest check
+全文入口：FULL_ACCESS；獨立逐項檢查及 Wiki 整合仍待完成，因此不得列入已完成全文 ingest。
+
+S06: https://www.frontiersin.org/journals/neuroscience/articles/10.3389/fnins.2023.1203059/full — §1.1, §3, §4
+
+--- wiki/concepts/eeg-machine-learning.md (score 4; 待審) ---
+# EEG Features & Machine Learning
+
+訊號處理提供特徵，統計建模描述關聯，機器學習用訓練資料建立預測；跨受試者泛化與資料洩漏需謹慎。
+
+來源：[S06](../papers/S06.md)，§3–4。目前為待審草稿。
+
+S06: https://www.frontiersin.org/journals/neuroscience/articles/10.3389/fnins.2023.1203059/full — §1.1, §3, §4
+
+QUERY: What are the limitations of using EEG spectral slope as an E/I marker?
+EXIT: 0
+
+--- wiki/papers/S05.md (score 4; 待審) ---
+# S05 — Periodic and aperiodic changes to cortical EEG in response to pharmacological manipulation
+
+- 作者與年份：Salvatore et al. (2024)
+- DOI：[10.1152/jn.00445.2023](https://doi.org/10.1152/jn.00445.2023)
+- 全文來源：https://pmc.ncbi.nlm.nih.gov/articles/PMC11305649/
+- 取得狀態：FULL_ACCESS；Ingest：INCOMPLETE（尚未完成逐篇獨立核對）
+
+## 目的
+測試藥理及化學遺傳操弄下非週期指數的解釋。
+
+## 資料與方法
+以清醒活動小鼠皮質 EEG，使用 FOOOF 比較多種操弄。
+
+## 發現與限制
+作者指出 ketamine 與 Gi DREADDs 等結果不支持把指數視為可靠 E/I 比值指標；行為狀態重要。
+
+## 可定位證據
+EEG Analysis; Discussion。原文為準；不從摘要之外推數字。
+
+## 與其他文獻
+比較 [跨文獻頁](../comparisons/evidence.md)，特別留意量測模態與條件不同。
+
+## Ingest check
+全文入口：FULL_ACCESS；獨立逐項檢查及 Wiki 整合仍待完成，因此不得列入已完成全文 ingest。
+
+S05: https://pmc.ncbi.nlm.nih.gov/articles/PMC11305649/ — EEG Analysis; Discussion
+
+--- wiki/papers/S06.md (score 4; 待審) ---
+# S06 — Survey on the research direction of EEG-based signal processing
+
+- 作者與年份：Sun & Mou (2023)
+- DOI：[10.3389/fnins.2023.1203059](https://doi.org/10.3389/fnins.2023.1203059)
+- 全文來源：https://www.frontiersin.org/journals/neuroscience/articles/10.3389/fnins.2023.1203059/full
+- 取得狀態：FULL_ACCESS；Ingest：INCOMPLETE（尚未完成逐篇獨立核對）
+
+## 目的
+回顧 EEG 訊號處理、特徵與分類方法。
+
+## 資料與方法
+綜述預處理、特徵萃取與機器學習／深度學習應用。
+
+## 發現與限制
+跨受試者泛化仍是挑戰；綜述不能作為個別分類效能的保證。
+
+## 可定位證據
+§1.1, §3, §4。原文為準；不從摘要之外推數字。
+
+## 與其他文獻
+比較 [跨文獻頁](../comparisons/evidence.md)，特別留意量測模態與條件不同。
+
+## Ingest check
+全文入口：FULL_ACCESS；獨立逐項檢查及 Wiki 整合仍待完成，因此不得列入已完成全文 ingest。
+
+S06: https://www.frontiersin.org/journals/neuroscience/articles/10.3389/fnins.2023.1203059/full — §1.1, §3, §4
+
+--- wiki/papers/S03.md (score 4; 待審) ---
+# S03 — Concurrent Multimodal Imaging Demonstrates That EEG-Based Excitation/Inhibition Balance Reflects Glutamate and GABA Balance
+
+- 作者與年份：Cochrane et al. (2026)
+- DOI：[10.1523/JNEUROSCI.1394-25.2026](https://doi.org/10.1523/JNEUROSCI.1394-25.2026)
+- 全文來源：https://pmc.ncbi.nlm.nih.gov/articles/PMC13064800/
+- 取得狀態：FULL_ACCESS；Ingest：INCOMPLETE（尚未完成逐篇獨立核對）
+
+## 目的
+探討同時量測 EEG 指標與 MRS 代謝物比例之關係。
+
+## 資料與方法
+睡眠人類的早期視覺皮質；比較受試者之間與受試者內的關聯。
+
+## 發現與限制
+MRS 使用 Glx/GABA+，含 glutamine 與共編輯巨分子，並非突觸電流比；相關不等於因果。
+
+## 可定位證據
+Materials and Methods: Experimental design; MRS-based E/I ratio; Abstract。原文為準；不從摘要之外推數字。
+
+## 與其他文獻
+比較 [跨文獻頁](../comparisons/evidence.md)，特別留意量測模態與條件不同。
+
+## Ingest check
+全文入口：FULL_ACCESS；獨立逐項檢查及 Wiki 整合仍待完成，因此不得列入已完成全文 ingest。
+
+S03: https://pmc.ncbi.nlm.nih.gov/articles/PMC13064800/ — Materials and Methods: Experimental design; MRS-based E/I ratio; Abstract
+
+--- wiki/concepts/limitations.md (score 4; 待審) ---
+# Methodological Limitations
+
+頻帶定義、非週期背景、訊噪比、腦區及行為狀態都可能改變解釋。藥理研究中的反例反對將指數當成普遍可靠的 E/I 指標。
+
+來源：[S05](../papers/S05.md)，Discussion。目前為待審草稿。
+
+S05: https://pmc.ncbi.nlm.nih.gov/articles/PMC11305649/ — EEG Analysis; Discussion
+
+--- wiki/concepts/eeg-machine-learning.md (score 4; 待審) ---
+# EEG Features & Machine Learning
+
+訊號處理提供特徵，統計建模描述關聯，機器學習用訓練資料建立預測；跨受試者泛化與資料洩漏需謹慎。
+
+來源：[S06](../papers/S06.md)，§3–4。目前為待審草稿。
+
+S06: https://www.frontiersin.org/journals/neuroscience/articles/10.3389/fnins.2023.1203059/full — §1.1, §3, §4
+
+QUERY: How can EEG features be used in machine learning?
+EXIT: 0
+
+--- wiki/concepts/eeg-machine-learning.md (score 16; 待審) ---
+# EEG Features & Machine Learning
+
+訊號處理提供特徵，統計建模描述關聯，機器學習用訓練資料建立預測；跨受試者泛化與資料洩漏需謹慎。
+
+來源：[S06](../papers/S06.md)，§3–4。目前為待審草稿。
+
+S06: https://www.frontiersin.org/journals/neuroscience/articles/10.3389/fnins.2023.1203059/full — §1.1, §3, §4
+
+--- wiki/index.md (score 4; 待審) ---
+# EEG → E/I → Machine Learning
+
+**待審草稿：未達五篇完整 ingest 門檻。**
+
+## 概念
+- [EEG Fundamentals](concepts/eeg-fundamentals.md)
+- [Sampling, Filtering, FFT & PSD](concepts/sampling-psd.md)
+- [Periodic vs. Aperiodic Components](concepts/periodic-aperiodic.md)
+- [Spectral Parameterization](concepts/spectral-parameterization.md)
+- [Aperiodic Exponent](concepts/aperiodic-exponent.md)
+- [Excitation/Inhibition Balance](concepts/ei-balance.md)
+- [EEG E/I Estimation Methods](concepts/ei-estimation.md)
+- [Methodological Limitations](concepts/limitations.md)
+- [EEG Features & Machine Learning](concepts/eeg-machine-learning.md)
+
+## 來源
+- [S01 Donoghue et al. (2020)](papers/S01.md)
+- [S02 Donoghue, Schaworonkow & Voytek (2022)](papers/S02.md)
+- [S03 Cochrane et al. (2026)](papers/S03.md)
+- [S04 Gao, Peterson & Voytek (2017)](papers/S04.md)
+- [S05 Salvatore et al. (2024)](papers/S05.md)
+- [S06 Sun & Mou (2023)](papers/S06.md)
+
+- [跨文獻比較](comparisons/evidence.md)
+
+S01: https://pmc.ncbi.nlm.nih.gov/articles/PMC8106550/ — Results: spectral parameterization; Methods: Fitting algorithm; Fig. 2
+S02: https://old.postlab.psych.wisc.edu/files/9516/2715/7291/Donoghue2021_MethodologicalConsiderationsOscillations.pdf — sections 2, 4 and Figures 1, 3
+S03: https://pmc.ncbi.nlm.nih.gov/articles/PMC13064800/ — Materials and Methods: Experimental design; MRS-based E/I ratio; Abstract
+S04: https://inc.ucsd.edu/publications/Gao-NeuroImage2017.pdf — §2.1, Fig. 1; §3; §4
+S05: https://pmc.ncbi.nlm.nih.gov/articles/PMC11305649/ — EEG Analysis; Discussion
+S06: https://www.frontiersin.org/journals/neuroscience/articles/10.3389/fnins.2023.1203059/full — §1.1, §3, §4
+
+--- wiki/papers/S05.md (score 4; 待審) ---
+# S05 — Periodic and aperiodic changes to cortical EEG in response to pharmacological manipulation
+
+- 作者與年份：Salvatore et al. (2024)
+- DOI：[10.1152/jn.00445.2023](https://doi.org/10.1152/jn.00445.2023)
+- 全文來源：https://pmc.ncbi.nlm.nih.gov/articles/PMC11305649/
+- 取得狀態：FULL_ACCESS；Ingest：INCOMPLETE（尚未完成逐篇獨立核對）
+
+## 目的
+測試藥理及化學遺傳操弄下非週期指數的解釋。
+
+## 資料與方法
+以清醒活動小鼠皮質 EEG，使用 FOOOF 比較多種操弄。
+
+## 發現與限制
+作者指出 ketamine 與 Gi DREADDs 等結果不支持把指數視為可靠 E/I 比值指標；行為狀態重要。
+
+## 可定位證據
+EEG Analysis; Discussion。原文為準；不從摘要之外推數字。
+
+## 與其他文獻
+比較 [跨文獻頁](../comparisons/evidence.md)，特別留意量測模態與條件不同。
+
+## Ingest check
+全文入口：FULL_ACCESS；獨立逐項檢查及 Wiki 整合仍待完成，因此不得列入已完成全文 ingest。
+
+S05: https://pmc.ncbi.nlm.nih.gov/articles/PMC11305649/ — EEG Analysis; Discussion
+
+--- wiki/papers/S06.md (score 4; 待審) ---
+# S06 — Survey on the research direction of EEG-based signal processing
+
+- 作者與年份：Sun & Mou (2023)
+- DOI：[10.3389/fnins.2023.1203059](https://doi.org/10.3389/fnins.2023.1203059)
+- 全文來源：https://www.frontiersin.org/journals/neuroscience/articles/10.3389/fnins.2023.1203059/full
+- 取得狀態：FULL_ACCESS；Ingest：INCOMPLETE（尚未完成逐篇獨立核對）
+
+## 目的
+回顧 EEG 訊號處理、特徵與分類方法。
+
+## 資料與方法
+綜述預處理、特徵萃取與機器學習／深度學習應用。
+
+## 發現與限制
+跨受試者泛化仍是挑戰；綜述不能作為個別分類效能的保證。
+
+## 可定位證據
+§1.1, §3, §4。原文為準；不從摘要之外推數字。
+
+## 與其他文獻
+比較 [跨文獻頁](../comparisons/evidence.md)，特別留意量測模態與條件不同。
+
+## Ingest check
+全文入口：FULL_ACCESS；獨立逐項檢查及 Wiki 整合仍待完成，因此不得列入已完成全文 ingest。
+
+S06: https://www.frontiersin.org/journals/neuroscience/articles/10.3389/fnins.2023.1203059/full — §1.1, §3, §4
+
+--- wiki/papers/S03.md (score 4; 待審) ---
+# S03 — Concurrent Multimodal Imaging Demonstrates That EEG-Based Excitation/Inhibition Balance Reflects Glutamate and GABA Balance
+
+- 作者與年份：Cochrane et al. (2026)
+- DOI：[10.1523/JNEUROSCI.1394-25.2026](https://doi.org/10.1523/JNEUROSCI.1394-25.2026)
+- 全文來源：https://pmc.ncbi.nlm.nih.gov/articles/PMC13064800/
+- 取得狀態：FULL_ACCESS；Ingest：INCOMPLETE（尚未完成逐篇獨立核對）
+
+## 目的
+探討同時量測 EEG 指標與 MRS 代謝物比例之關係。
+
+## 資料與方法
+睡眠人類的早期視覺皮質；比較受試者之間與受試者內的關聯。
+
+## 發現與限制
+MRS 使用 Glx/GABA+，含 glutamine 與共編輯巨分子，並非突觸電流比；相關不等於因果。
+
+## 可定位證據
+Materials and Methods: Experimental design; MRS-based E/I ratio; Abstract。原文為準；不從摘要之外推數字。
+
+## 與其他文獻
+比較 [跨文獻頁](../comparisons/evidence.md)，特別留意量測模態與條件不同。
+
+## Ingest check
+全文入口：FULL_ACCESS；獨立逐項檢查及 Wiki 整合仍待完成，因此不得列入已完成全文 ingest。
+
+S03: https://pmc.ncbi.nlm.nih.gov/articles/PMC13064800/ — Materials and Methods: Experimental design; MRS-based E/I ratio; Abstract

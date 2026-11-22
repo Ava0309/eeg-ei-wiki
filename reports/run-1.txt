@@ -1,0 +1,7 @@
+PASS source IDs unique
+PASS DOI syntax (not network validation)
+FAIL at least five completed full-text ingests
+PASS wiki source IDs and links resolve
+FAIL evidence map exists
+Issues: 2
+{"node": "N4 wiki lint", "result": "FAIL", "next": "N1 source ingest / N3 wiki integration", "retries": 0, "note": "No automatic repair; operator must resolve failed conditions, maximum three local attempts."}
