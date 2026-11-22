@@ -1,6 +1,6 @@
 # EEG Fundamentals
 
-EEG 記錄頭皮電極間隨時間變化的電位差；資料同時含神經訊號與雜訊。與 LFP、ECoG 的空間取樣與侵入程度不同。
+EEG 記錄頭皮電極間隨時間變化的電位差；資料同時含神經訊號與雜訊。與 LFP、ECoG 的空間取樣與侵入程度不同；[S04](../papers/S04.md) §2.4、§2.7 使用大鼠海馬 LFP 與獼猴皮質 ECoG。
 
 來源：[S06](../papers/S06.md)，§1 Introduction。參照 paper note 的原文定位；獨立科學審查仍待完成。
 

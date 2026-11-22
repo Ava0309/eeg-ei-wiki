@@ -36,9 +36,10 @@
     "learning_objective": "認識 EEG 量測",
     "wiki_page": "wiki/concepts/eeg-fundamentals.md",
     "source_ids": [
-      "S06"
+      "S06",
+      "S04"
     ],
-    "source_locator": "Introduction",
+    "source_locator": "S06 Introduction; S04 §2.4、§2.7",
     "exact_claim": "EEG 通道表示電極相對參考的電位差，含腦訊號及雜訊。",
     "title": "EEG：從頭皮看時間訊號",
     "body": "<p class=\"lead\">EEG 量測電極之間隨時間變動的電位差。</p><ul><li>多個通道記錄不同位置；參考方式會影響通道的意義。</li><li>量到的是許多來源的混合，也包含眼動與肌肉等雜訊。</li><li>頭皮 EEG、皮質表面 ECoG 與局部場電位 LFP 的取樣範圍不同。</li></ul>",
@@ -54,11 +55,11 @@
       "S04"
     ],
     "source_locator": "S06 Introduction; S04 §2.2",
-    "exact_claim": "頻譜分析把時間序列轉為不同頻率的功率描述。",
+    "exact_claim": "DFT 將有限時間序列轉為頻率分量，頻率格點為 kfₛ/N；PSD 估計需考慮窗函數與正規化。",
     "title": "從時間到頻率",
-    "body": "<p>時間波形顯示訊號如何隨時間改變；頻譜則顯示各頻率的功率分布。</p><div class=\"formula\">X[k] = Σ x[n] e<sup>−i2πkn/N</sup></div><p><b>x[n]</b>：第 n 個樣本　<b>N</b>：樣本數　<b>k</b>：頻率索引。功率與 |X[k]|² 有關；實務 PSD 需考慮窗函數與正規化。</p>",
+    "body": "<p>時間波形顯示訊號如何隨時間改變；頻譜顯示各頻率的功率分布。</p><div class=\"formula\">X[k] = Σ<sub>n=0</sub><sup>N−1</sup> x[n] e<sup>−i2πkn/N</sup></div><p><b>x[n]</b>：第 n 個樣本；<b>n = 0 … N−1</b>：時間索引；<b>N</b>：樣本數；<b>k = 0 … N−1</b>：頻率索引；<b>i² = −1</b>。頻率格點 f<sub>k</sub> = kf<sub>s</sub>/N，f<sub>s</sub> 為取樣率。功率與 |X[k]|² 有關；PSD 需考慮窗函數與正規化。</p>",
     "interaction": "signal",
-    "limitation": "見對應 Wiki 與原文；不可解釋為直接 E/I 量測。"
+    "limitation": "DFT 為教學數學定義；S04 §2.2 為 STFT／PSD 的研究方法，並非本文實驗結果。"
   },
   {
     "id": "05",
@@ -159,12 +160,12 @@
       "S06",
       "S02"
     ],
-    "source_locator": "S06 §1.1.2, §3–4; S02 Fig. 3",
-    "exact_claim": "EEG 特徵可作模型輸入，跨受試者泛化與洩漏需注意。",
+    "source_locator": "S06 Introduction, §1.1.2, §4; S02 Fig. 3",
+    "exact_claim": "EEG 特徵可作分類模型輸入；依受試者切分有助評估跨人泛化並降低重疊片段洩漏。",
     "title": "從 EEG 特徵到預測",
-    "body": "<div class=\"steps\"><div><b>訊號處理</b><small>清理訊號、估計 PSD</small></div><div><b>特徵</b><small>峰值、背景指數等</small></div><div><b>機器學習</b><small>用訓練資料建立預測</small></div></div><p>將受試者分開訓練與測試，有助評估跨人泛化；避免重疊片段跨集合造成資料洩漏。</p>",
+    "body": "<p><b>假想例子：</b>預測試次是左手或右手動作想像，並非真實研究結果。</p><div class=\"steps\"><div><b>特徵 X</b><small>alpha 峰頻率、exponent；無峰時需先定義缺失值處理。</small></div><div><b>標籤 y</b><small>左手或右手動作想像，由任務給定。</small></div><div><b>訓練 → 評估</b><small>按受試者分組；只用訓練組擬合標準化與分類器，驗證組選設定，測試組最後評估。</small></div></div><p>避免重疊片段跨組造成資料洩漏；預測正確也不代表直接測得 E/I。</p>",
     "interaction": "",
-    "limitation": "見對應 Wiki 與原文；不可解釋為直接 E/I 量測。"
+    "limitation": "特徵、標籤及切分為假想教學設計；不表示 S06 實際做過此實驗。"
   },
   {
     "id": "12",
