@@ -1,28 +1,38 @@
-# 執行狀態與反思（未完成，非可繳交版）
+# 執行與驗收報告
 
-日期：2026-11-23，Asia/Taipei。需求由使用者提供的九項確認摘要整理，非捏造訪談。
+時間：2026-11-23（Asia/Taipei）。核心問題：EEG 頻譜特徵能否可靠地提供腦部興奮／抑制平衡資訊？
 
-## 目前成果
+## 文獻與 Wiki
 
-- 整理需求與 AGENTS.md；建立六篇文獻的初步筆記、九個概念草稿及 S03/S04/S05 比較。這些均未完成逐項引用審查。
-- 六篇均已取得可閱讀的全文入口或全文檔案；S02 使用替代 PDF，S03、S05 使用暫存 HTML。**完成完整 ingest 並通過檢查：0 篇**。取得全文不代表逐篇閱讀、校驗、整合已完成。
-- 有可執行的詞彙檢索與五題示範，結果在 `reports/query-examples.txt`；這不是語意搜尋，也不是科學審查。
-- Graph 文件列出設計與未實作狀態；`scripts/graph.py` 目前只執行 N4 檢查，失敗時寫入狀態並停止，不會自動完成修正、重試或其他節點。
+六篇全文已取得；對每篇的方法、結果、討論及下列引用位置進行聚焦閱讀和核對，完成初步整合。此處的 PASS 指本專案執行者完成以上步驟，不代表逐字覆核全文或通過獨立科學審查。
 
-## 真實檢查與局部修正
+| ID | 來源 | 對照位置與貢獻 |
+|---|---|---|
+| S01 | Donoghue 2020 | Fig. 2、Methods、Extended Data：背景／候選峰模型及擬合限制 |
+| S02 | Donoghue 2022 | Box 1、Fig. 1、3、Conclusion：頻帶功率與非週期背景的混淆 |
+| S03 | Cochrane 2026 | Methods、Results、Discussion：睡眠人類同步 EEG/MRS；Glx/GABA+ 並非突觸電流比 |
+| S04 | Gao 2017 | §2–4、Fig. 1：模型、大鼠 LFP、獼猴 ECoG，不能混同頭皮 EEG |
+| S05 | Salvatore 2024 | EEG Analysis、Results、Discussion、Fig. 1、2、6：小鼠硬腦膜外皮質 EEG 的操弄結果及限制 |
+| S06 | Sun & Mou 2023 | Introduction、§1.1.2、§3–4：EEG 處理、資料增強與跨受試者泛化 |
 
-第一次 `python3 scripts/graph.py`：3 項通過（ID 唯一、DOI 格式、Wiki 來源 ID 與相對連結）；2 項失敗（五篇通過完整 ingest、evidence map 存在）。詳細輸出見 `reports/run-1.txt`。DOI 僅驗格式，並非網路驗證；連結檢查也不是內容正確性審查。
+每篇紀錄及當時的 lint 結果見 [ingest-checks.md](ingest-checks.md)。[Wiki Index](../wiki/index.md) 串接 paper notes、九個概念頁與跨研究比較。逐頁稿與 evidence map 保存在 [evidence-map.json](../slides/evidence-map.json)，每筆包含學習目標、Wiki 路徑、原始來源、主張與定位；HTML 由同一檔生成。
 
-第一次查詢機器學習問題時，索引頁排名偏高，且短詞可匹配無關字串；這是真實的 N5 Retrieval 品質問題。修正 `scripts/query.py`，排除單字母詞、採完整英文詞匹配並降低索引頁權重。重新執行後，機器學習概念頁仍為首項；五題輸出已保存。這是局部修正，不代表檢索排名或涵蓋率已經過完整評估。第二次 Graph 檢查仍有上述兩項失敗，見 `reports/run-2.txt`。
+## Graph 與真實測試
 
-## 障礙與流程反思
+- 初期 `reports/run-1.txt` 與 `reports/run-2.txt` 保留了五篇 ingest 門檻及 evidence map 缺失的失敗，不覆寫歷史。
+- 後續 `python3 scripts/graph.py --attempt 1` 實際執行 N4 與 N6/N9：Wiki lint 五項通過，12 頁 evidence map 和 HTML 結構檢查通過，見 `run-3.txt`。再次執行見 `run-4.txt`。失敗時腳本輸出回退節點與次數；人工執行局部修正，不聲稱自動修復。
+- Playwright 搭配系統 Chrome 在 1440×900 與 390×844 檢查 12 頁頁碼、按鈕、方向鍵、兩個滑桿、橫向溢出、JavaScript runtime error；結果 errors 0、failures 0。截圖在本資料夾。這不代表所有螢幕尺寸都已覆蓋。
+- 科學逐頁對照見 [content-review.md](content-review.md)，由製作者執行；**獨立科學審查尚未完成**。程式檢查無法證明每個科學結論。
 
-目前最明確的阻塞在 N1/N2：雖已取得全文入口，但尚未逐篇完成內容閱讀、引用查核與整合；N6 缺少 evidence map 是下游結果。第一次檢查把兩者都列為失敗，資料未達門檻時停止生成是符合規格的保守行為。由於只有一次完整 Graph 檢查及一次重跑，不能推斷長期「最常出錯」節點；目前 N1/N2 是尚未完成的關鍵路徑。應在每篇產生筆記時即核對原文章節，避免等整份簡報完成才發現引用不足；這是後續改善建議，不是已驗證的流程改善效果。
+## 問題、局部回退與反思
 
-S03/S05 原先經瀏覽服務遇驗證頁，沙箱 curl 遇 DNS 錯誤；經授權網路下載全文到 `/tmp` 成功。原始受版權保護內容未加入 repository。
+1. 初期 N1/N2 未完成五篇核對，N6 缺 evidence map；流程停下。後續逐篇處理，再建立地圖並重跑，結構關卡通過。
+2. N10 初次測試找不到 Playwright 自帶瀏覽器，改用已安裝 Chrome；在沙箱啟動失敗，經授權在沙箱外成功。
+3. N9/N10 實際檢視發現指數圖每次自動縮放縱軸，導致 β 變動被掩蓋。退回 N9 固定縱軸、增加畫布前後內容變化檢查；重新執行桌面與手機測試均通過。
+4. 早期 N5 查詢曾因短詞匹配而出現無關結果，已限制完整詞匹配並降低索引頁權重；五題示範見 `query-examples.txt`。
 
-## 未完成
+目前記錄不足以統計哪個節點在長期運作中最常出錯；本次有可觀察的問題分布於 N1/N2、N5 與 N9/N10。改善方式是在單篇 ingest 時檢查定位詞，在生成 HTML 後立刻測試互動前後圖像；已落實後者，但仍須補上更嚴格的來源語意與獨立審查關卡。
 
-逐篇完整 ingest、可供審查的知識整合、完整 evidence map、逐頁稿與獨立審查、HTML 與互動、瀏覽器和手機測試、部署及公開 URL 全部未完成。程式不會聲稱這些工作已通過。尚無 GitHub repository 和 Pages 網址。此報告不是作業繳交說明。
+## 發布與剩餘限制
 
-另外，`python3 -m py_compile` 第一次因系統預設快取目錄不允許寫入而失敗；設定 `PYTHONPYCACHEPREFIX=/tmp/eeg-pycache` 後，三支腳本的語法編譯成功。這個環境修正不影響 ingest 的兩項未通過條件。
+GitHub Repository 與 Pages 仍待公開後確認並填入；本報告不預先假設公開網址可用。未完成獨立科學審查；DOI 自動檢查是格式檢查，無法單獨證明書目正確。圖表是合成資料，不是實驗數據。

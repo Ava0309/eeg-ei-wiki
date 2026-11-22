@@ -1,9 +1,13 @@
 #!/usr/bin/env python3
-"""Gate the workflow: do not create slides if prerequisites fail."""
-import json, subprocess, sys
+"""Run implemented gates in order; failures return to local owner, maximum 3 tries."""
+import argparse,json,subprocess,sys
 from pathlib import Path
-R=Path(__file__).resolve().parents[1]
-p=subprocess.run([sys.executable,str(R/'scripts/check.py')],cwd=R)
-status={'node':'N4 wiki lint','result':'PASS' if p.returncode==0 else 'FAIL','next':'N5 retrieval' if p.returncode==0 else 'N1 source ingest / N3 wiki integration','retries':0,'note':'No automatic repair; operator must resolve failed conditions, maximum three local attempts.'}
-(R/'reports/graph-state.json').write_text(json.dumps(status,ensure_ascii=False,indent=2)+'\n')
-print(json.dumps(status,ensure_ascii=False)); sys.exit(p.returncode)
+R=Path(__file__).resolve().parents[1];p=argparse.ArgumentParser();p.add_argument('--attempt',type=int,default=1);a=p.parse_args()
+if not 1<=a.attempt<=3: print('STOP: local retry limit is three');sys.exit(2)
+stages=[('N4 Wiki lint','scripts/check.py','N1/N3'),('N6 Evidence map / N9 HTML structure','scripts/check_deck.py','N6/N7/N9')]
+for node,script,back in stages:
+ print('\n'+node,flush=True);r=subprocess.run([sys.executable,str(R/script)],cwd=R)
+ if r.returncode:
+  state={'node':node,'result':'FAIL','return_to':back,'attempt':a.attempt,'next':'STOP' if a.attempt==3 else 'LOCAL_REPAIR'};break
+else:state={'node':'N9 HTML structure','result':'PASS','next':'N8 independent review and N10 browser QA','attempt':a.attempt,'note':'Programmatic gates do not certify semantic claims or browser behavior.'}
+(R/'reports/graph-state.json').write_text(json.dumps(state,ensure_ascii=False,indent=2)+'\n');print(json.dumps(state,ensure_ascii=False));sys.exit(state['result']!='PASS')

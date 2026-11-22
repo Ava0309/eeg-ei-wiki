@@ -1,0 +1,188 @@
+[
+  {
+    "id": "01",
+    "learning_objective": "認識問題",
+    "wiki_page": "wiki/index.md",
+    "source_ids": [
+      "S01",
+      "S03",
+      "S05"
+    ],
+    "source_locator": "S01 Introduction; S03 Discussion; S05 Discussion",
+    "exact_claim": "EEG 頻譜可能提供 E/I 的間接線索，但指數不是直接量測。",
+    "title": "從腦波到大腦興奮／抑制平衡",
+    "body": "<p class=\"lead\">From EEG Signals to Excitation–Inhibition Balance</p><p>訊號分析、神經科學與機器學習入門</p><div class=\"callout\">核心問題：EEG 頻譜特徵能可靠地提供 E/I 平衡資訊嗎？</div>",
+    "interaction": "",
+    "limitation": "見對應 Wiki 與原文；不可解釋為直接 E/I 量測。"
+  },
+  {
+    "id": "02",
+    "learning_objective": "掌握學習路徑",
+    "wiki_page": "wiki/index.md",
+    "source_ids": [
+      "S01",
+      "S03",
+      "S05"
+    ],
+    "source_locator": "S01 Fig. 2; S03 Discussion; S05 Discussion",
+    "exact_claim": "從訊號、頻譜模型到 E/I 推論須逐層檢驗。",
+    "title": "一條路徑，三種問題",
+    "body": "<div class=\"steps\"><div><b>01</b> 量到什麼？<small>頭皮電位隨時間變化</small></div><div><b>02</b> 如何描述？<small>頻譜、背景與峰</small></div><div><b>03</b> 能推論什麼？<small>E/I 指標與限制</small></div></div><p>最後把可解釋的特徵交給機器學習，評估能否泛化。</p>",
+    "interaction": "",
+    "limitation": "見對應 Wiki 與原文；不可解釋為直接 E/I 量測。"
+  },
+  {
+    "id": "03",
+    "learning_objective": "認識 EEG 量測",
+    "wiki_page": "wiki/concepts/eeg-fundamentals.md",
+    "source_ids": [
+      "S06"
+    ],
+    "source_locator": "Introduction",
+    "exact_claim": "EEG 通道表示電極相對參考的電位差，含腦訊號及雜訊。",
+    "title": "EEG：從頭皮看時間訊號",
+    "body": "<p class=\"lead\">EEG 量測電極之間隨時間變動的電位差。</p><ul><li>多個通道記錄不同位置；參考方式會影響通道的意義。</li><li>量到的是許多來源的混合，也包含眼動與肌肉等雜訊。</li><li>頭皮 EEG、皮質表面 ECoG 與局部場電位 LFP 的取樣範圍不同。</li></ul>",
+    "interaction": "",
+    "limitation": "見對應 Wiki 與原文；不可解釋為直接 E/I 量測。"
+  },
+  {
+    "id": "04",
+    "learning_objective": "連結時域與頻域",
+    "wiki_page": "wiki/concepts/sampling-psd.md",
+    "source_ids": [
+      "S06",
+      "S04"
+    ],
+    "source_locator": "S06 Introduction; S04 §2.2",
+    "exact_claim": "頻譜分析把時間序列轉為不同頻率的功率描述。",
+    "title": "從時間到頻率",
+    "body": "<p>時間波形顯示訊號如何隨時間改變；頻譜則顯示各頻率的功率分布。</p><div class=\"formula\">X[k] = Σ x[n] e<sup>−i2πkn/N</sup></div><p><b>x[n]</b>：第 n 個樣本　<b>N</b>：樣本數　<b>k</b>：頻率索引。功率與 |X[k]|² 有關；實務 PSD 需考慮窗函數與正規化。</p>",
+    "interaction": "signal",
+    "limitation": "見對應 Wiki 與原文；不可解釋為直接 E/I 量測。"
+  },
+  {
+    "id": "05",
+    "learning_objective": "區分峰與背景",
+    "wiki_page": "wiki/concepts/periodic-aperiodic.md",
+    "source_ids": [
+      "S01",
+      "S02"
+    ],
+    "source_locator": "S01 Fig. 2; S02 Fig. 1, 3",
+    "exact_claim": "頻帶功率包含背景與可能的振盪峰；有功率不保證有振盪。",
+    "title": "一個頻譜，兩種成分",
+    "body": "<div class=\"cards\"><div><h3>Periodic</h3><p>相對背景突出的峰，可作為候選振盪。</p></div><div><h3>Aperiodic</h3><p>分布於寬頻、隨頻率變化的背景。</p></div></div><div class=\"callout\">頻帶內有功率 ≠ 一定存在振盪；背景本身也會貢獻功率。</div>",
+    "interaction": "",
+    "limitation": "見對應 Wiki 與原文；不可解釋為直接 E/I 量測。"
+  },
+  {
+    "id": "06",
+    "learning_objective": "理解 exponent",
+    "wiki_page": "wiki/concepts/aperiodic-exponent.md",
+    "source_ids": [
+      "S01",
+      "S02"
+    ],
+    "source_locator": "S01 Methods: Fitting algorithm; S02 Fig. 1",
+    "exact_claim": "無 knee 的冪次模型中 log-log 斜率為負 exponent。",
+    "title": "指數 β：描述背景的陡峭程度",
+    "body": "<div class=\"formula\">P(f) = A / f<sup>β</sup></div><p><b>f</b>：頻率　<b>P(f)</b>：功率　<b>A</b>：尺度　<b>β</b>：指數。固定 A 時，β 較大，曲線下降較快；log-log 圖的斜率是 −β。</p>",
+    "interaction": "exponent",
+    "limitation": "見對應 Wiki 與原文；不可解釋為直接 E/I 量測。"
+  },
+  {
+    "id": "07",
+    "learning_objective": "理解頻譜參數化",
+    "wiki_page": "wiki/concepts/spectral-parameterization.md",
+    "source_ids": [
+      "S01",
+      "S02"
+    ],
+    "source_locator": "S01 Fig. 2 and Methods; S02 Fig. 3",
+    "exact_claim": "參數化先估背景與候選峰，並受模型和頻段設定影響。",
+    "title": "Spectral parameterization",
+    "body": "<div class=\"steps\"><div><b>1</b> 估計背景<small>選擇 fixed 或 knee 模型</small></div><div><b>2</b> 找候選峰<small>在殘差中擬合峰</small></div><div><b>3</b> 重估與檢查<small>檢視擬合、範圍和雜訊</small></div></div><p>背景與峰是模型的描述；好的擬合不自動證明背後的生理機制。</p>",
+    "interaction": "",
+    "limitation": "見對應 Wiki 與原文；不可解釋為直接 E/I 量測。"
+  },
+  {
+    "id": "08",
+    "learning_objective": "理解 E/I 的不同定義",
+    "wiki_page": "wiki/concepts/ei-balance.md",
+    "source_ids": [
+      "S03",
+      "S04"
+    ],
+    "source_locator": "S04 §2.1; S03 MRS-based E/I ratio",
+    "exact_claim": "模型中的突觸 conductance 比與 MRS 代謝物比為不同物理量。",
+    "title": "E/I balance：先問量的是什麼",
+    "body": "<p>興奮與抑制是神經網路動態互動；「比值」的分子與分母必須由方法定義。</p><div class=\"cards\"><div><h3>模型中的突觸作用</h3><p>例如平均興奮 conductance / 平均抑制 conductance。</p></div><div><h3>MRS 代謝物</h3><p>Glx / GABA+ 包含其他成分，並非突觸 conductance 比。</p></div></div>",
+    "interaction": "",
+    "limitation": "見對應 Wiki 與原文；不可解釋為直接 E/I 量測。"
+  },
+  {
+    "id": "09",
+    "learning_objective": "比較研究與反例",
+    "wiki_page": "wiki/comparisons/evidence.md",
+    "source_ids": [
+      "S03",
+      "S04",
+      "S05"
+    ],
+    "source_locator": "S03 Results and Discussion; S04 §3–4; S05 Results and Discussion",
+    "exact_claim": "模型、跨模態關聯與藥理研究在不同條件下提供不同證據。",
+    "title": "三種證據，不同問題",
+    "body": "<div class=\"compare\"><p><b>S04 · 模型 + 動物 LFP/ECoG</b><br>特定假設下，頻譜斜率隨模型 E/I 改變。</p><p><b>S03 · 睡眠人類 EEG + MRS</b><br>部分 EEG 指標與代謝物比例存在受試者間關聯；受試者內較弱。</p><p><b>S05 · 小鼠皮質 EEG + 操弄</b><br>部分結果符合假說，其他結果挑戰其普遍可靠性。</p></div>",
+    "interaction": "",
+    "limitation": "見對應 Wiki 與原文；不可解釋為直接 E/I 量測。"
+  },
+  {
+    "id": "10",
+    "learning_objective": "理解交叉模態驗證",
+    "wiki_page": "wiki/concepts/ei-estimation.md",
+    "source_ids": [
+      "S03",
+      "S05"
+    ],
+    "source_locator": "S03 Materials and Methods, Results and Discussion; S05 Discussion",
+    "exact_claim": "EEG 與 MRS 的關聯提供有限驗證，並不代表直接或因果測量。",
+    "title": "EEG 與 MRS：關聯如何解讀？",
+    "body": "<p class=\"lead\">S03 同時測量睡眠中的 EEG 與視覺皮質 MRS，分開估計個體間和個體內關聯。</p><ul><li>EEG 指標與 Glx/GABA+ 各有不同的空間、時間與生理意義。</li><li>關聯提供可檢驗的線索，不能證明 EEG 直接測得突觸 E/I。</li><li>小樣本、睡眠狀態和單一腦區限制推廣。</li></ul>",
+    "interaction": "",
+    "limitation": "見對應 Wiki 與原文；不可解釋為直接 E/I 量測。"
+  },
+  {
+    "id": "11",
+    "learning_objective": "連接特徵與機器學習",
+    "wiki_page": "wiki/concepts/eeg-machine-learning.md",
+    "source_ids": [
+      "S06",
+      "S02"
+    ],
+    "source_locator": "S06 §1.1.2, §3–4; S02 Fig. 3",
+    "exact_claim": "EEG 特徵可作模型輸入，跨受試者泛化與洩漏需注意。",
+    "title": "從 EEG 特徵到預測",
+    "body": "<div class=\"steps\"><div><b>訊號處理</b><small>清理訊號、估計 PSD</small></div><div><b>特徵</b><small>峰值、背景指數等</small></div><div><b>機器學習</b><small>用訓練資料建立預測</small></div></div><p>將受試者分開訓練與測試，有助評估跨人泛化；避免重疊片段跨集合造成資料洩漏。</p>",
+    "interaction": "",
+    "limitation": "見對應 Wiki 與原文；不可解釋為直接 E/I 量測。"
+  },
+  {
+    "id": "12",
+    "learning_objective": "帶走限制與核心答案",
+    "wiki_page": "wiki/concepts/limitations.md",
+    "source_ids": [
+      "S01",
+      "S02",
+      "S03",
+      "S04",
+      "S05",
+      "S06"
+    ],
+    "source_locator": "S01 Discussion; S02 Conclusion; S03–S05 Discussion; S06 §4",
+    "exact_claim": "EEG 頻譜可提供間接線索，仍不能普遍可靠地直接測得 E/I 比。",
+    "title": "帶走一個審慎的答案",
+    "body": "<p class=\"lead\">EEG 頻譜可提供與 E/I 相關的間接線索；單一 exponent 尚不能普遍可靠地直接量測 E/I 比。</p><ul><li>先檢查頻譜模型、頻帶、雜訊與行為狀態。</li><li>區分相關性、模型假設、量測模態與生理量。</li><li>跨研究、跨物種和跨狀態的推廣需要更多驗證。</li></ul>",
+    "interaction": "",
+    "limitation": "見對應 Wiki 與原文；不可解釋為直接 E/I 量測。"
+  }
+]

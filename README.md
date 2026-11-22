@@ -1,9 +1,11 @@
 # From EEG Signals to Excitation–Inhibition Balance
 
-繁體中文研究與教學 Wiki 草稿，核心問題：EEG 頻譜特徵能否可靠提供大腦興奮／抑制平衡資訊？此專案尚未完成；不可作為已驗收的教學成品。
+繁體中文 EEG → 頻譜 → 興奮／抑制平衡 → 機器學習教學專案。六篇全文的主要方法、結果與限制已做聚焦閱讀和引用核對；結論仍需獨立科學審查。核心問題：EEG 頻譜特徵能否可靠提供 E/I 平衡資訊？
 
-- [確認需求](docs/requirements.md)；[Wiki 首頁](wiki/index.md)；[Graph 與節點規格](workflow/graph.md)；[工作紀錄](wiki/log.md)。
-- 查詢：`python3 scripts/query.py "What is an aperiodic exponent?"`；此工具檢索實際 Markdown，而非生成答案。
-- 結構檢查：`python3 scripts/check.py`；流程閘門：`python3 scripts/graph.py`。目前會因尚無五篇通過完整 ingest 與 evidence map 缺失而停止。
-- HTML、證據地圖、獨立審查、瀏覽器測試和部署均尚未完成。沒有可執行的簡報重生指令。
-- 來源資料含 DOI、取得狀態及定位資訊，見 [sources.json](raw/sources.json)；引用的結論仍需逐篇審查。
+- [開啟教學簡報](index.html)（本機可直接開啟）；[Wiki 首頁](wiki/index.md)；[跨研究比較](wiki/comparisons/evidence.md)。
+- [需求](docs/requirements.md)；[來源與狀態](raw/sources.json)；[逐頁證據與逐頁稿](slides/evidence-map.json)；[Graph](workflow/graph.md)；[執行報告](reports/final-report.md)。
+- 查詢實際 Wiki：`python3 scripts/query.py "What is an aperiodic exponent?"`。這是關鍵詞檢索，非語意生成。
+- Lint 與 Evidence Map、HTML 結構檢查：`python3 scripts/graph.py --attempt 1`。實作的關卡會依失敗狀況回傳修正節點，最多三輪；不自動修文，也不取代科學審查。
+- 重新產生 HTML：`python3 scripts/render.py`。投影片文字與來源從 `slides/evidence-map.json` 讀取，渲染器處理呈現及互動。
+- 瀏覽器測試：安裝 Playwright 並確保 `tests/browser.cjs` 的 Chrome 路徑適用後，執行 `node tests/browser.cjs`；測試桌機與手機、鍵盤、滑桿、橫向溢出與 runtime error。
+- 頻譜與波形皆為 Synthetic Data。指數是模型參數，非直接量測突觸 E/I；MRS Glx/GABA+ 也不等同突觸電流比。

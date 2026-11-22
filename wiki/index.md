@@ -1,6 +1,6 @@
 # EEG → E/I → Machine Learning
 
-**待審草稿：未達五篇完整 ingest 門檻。**
+六篇來源已完成聚焦閱讀與引用核對；獨立科學審查另行記錄。
 
 ## 概念
 - [EEG Fundamentals](concepts/eeg-fundamentals.md)

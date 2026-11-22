@@ -1,0 +1,13 @@
+
+N4 Wiki lint
+PASS source IDs unique
+PASS DOI syntax (not network validation)
+PASS at least five completed full-text ingests
+PASS wiki source IDs and links resolve
+PASS evidence map exists
+Issues: 0
+
+N6 Evidence map / N9 HTML structure
+Slides: 12
+PASS evidence and HTML structure
+{"node": "N9 HTML structure", "result": "PASS", "next": "N8 independent review and N10 browser QA", "attempt": 2, "note": "Programmatic gates do not certify semantic claims or browser behavior."}
