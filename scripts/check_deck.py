@@ -6,9 +6,10 @@ R=Path(__file__).resolve().parents[1]; errors=[]
 S={x['id']:x for x in json.loads((R/'raw/sources.json').read_text())}; p=R/'slides/evidence-map.json'
 if not p.exists():print('FAIL missing evidence map');sys.exit(1)
 m=json.loads(p.read_text());print('Slides:',len(m))
-if not 8<=len(m)<=15:errors.append('slide count')
+if len(m)!=15:errors.append('expected exactly 15 slides')
+if len({s.get('id') for s in m})!=len(m):errors.append('duplicate slide IDs')
 for s in m:
- for k in ('id','learning_objective','wiki_page','source_ids','source_locator','exact_claim','title','body'):
+ for k in ('id','learning_objective','wiki_page','source_ids','source_locator','exact_claim','title','body','question','bridge','visual'):
   if not s.get(k):errors.append(s.get('id','?')+' missing '+k)
  if not (R/s['wiki_page']).exists():errors.append(s['id']+' wiki missing')
  for sid in s['source_ids']:
@@ -16,6 +17,7 @@ for s in m:
 page=(R/'index.html').read_text() if (R/'index.html').exists() else ''
 for s in m:
  if f'data-id="{s["id"]}"' not in page or s['body'] not in page:errors.append(s['id']+' HTML differs from mapped content')
+ if s['visual'] in ('sampling','fourier','welch','decomposition','parameterization','exponent') and 'Synthetic Data' not in s['body']:errors.append(s['id']+' missing Synthetic Data label')
 for token in ('id="freq"','id="beta"','ArrowLeft','ArrowRight','Synthetic Data'):
  if token not in page:errors.append('missing '+token)
 print('PASS evidence and HTML structure' if not errors else 'FAIL '+str(errors));sys.exit(bool(errors))

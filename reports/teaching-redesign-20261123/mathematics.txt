@@ -1,0 +1,1 @@
+PASS: DFT amplitude, sampling alias, Welch 7 windows / PSD normalization and scaling, decomposition band effect

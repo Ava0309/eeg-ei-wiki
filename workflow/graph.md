@@ -21,8 +21,8 @@ flowchart LR
 | N3 | 筆記 → 概念與比較 | 保留研究差異 | N1/N2 | 九個概念頁與比較頁已建立 |
 | N4 | Wiki、metadata → lint | Python 檢查連結、ID、來源數 | N3 或 N1 | 已執行並通過；未自動核實科學內容 |
 | N5 | Wiki → 檢索與覆蓋 | 五題查詢，資料不足停止 | N3 | 五題查詢已實跑；完整覆蓋率人工評估未完成 |
-| N6 | 檢索內容 → evidence map 與大綱 | 每頁有來源定位 | N5 | 12 頁 map 與大綱已建立並通過結構檢查 |
-| N7 | 證據卡 → 逐頁稿 | 只用 Wiki 已有知識 | N6 | 12 頁逐頁稿已建立；新增內容先更新 Wiki |
+| N6 | 檢索內容 → evidence map 與大綱 | 每頁有來源定位 | N5 | 15 頁 map 與大綱已建立並通過結構檢查 |
+| N7 | 證據卡 → 逐頁稿 | 只用 Wiki 已有知識 | N6 | 15 頁逐頁稿已建立；新增內容先更新 Wiki |
 | N8 | 逐頁稿及來源 → 獨立審查 | 與製作者獨立的審查回合逐項核對 | N7/N6 | **未完成；不可標示 PASS**。既有核對由製作者執行 |
 | N9 | 逐頁稿 → HTML | 排版、互動及產物檢查，不擅改科學文字 | N7 | 已產生；目前先於 N8 完成，屬流程未閉合；N9 圖表檢查另行執行 |
 | N10 | HTML → QA 與網站 | 實際瀏覽器檢查、部署 | N9 或 N7 | 桌面、手機與公開頁已測試；範圍與結果見 `reports/final-report.md` |
@@ -36,3 +36,7 @@ flowchart LR
 ## 將圖表檢查前移
 
 `tests/render_plot.cjs` 在 N9 渲染後、完整 N10 瀏覽器 QA 前，實際調整 β 並讀取固定座標的畫布像素，確認起點近似固定且較大 β 的末端下降。此項需要 Chrome／Playwright；它是單獨執行的 N9 關卡，尚未納入 `graph.py` 的自動調度。
+
+## 2026-11-23 教學改版
+
+先補充 `wiki/concepts/teaching-foundations.md`，再更新 15 頁逐頁稿與 evidence map，最後以 `scripts/render.py` 渲染。Teaching Quality Review 由製作者執行並保留逐頁理由；這不代表 N8 的獨立科學審查已完成。新增合成圖表的數值測試及桌機／手機互動測試；記錄位於 `reports/teaching-redesign-20261123/`。

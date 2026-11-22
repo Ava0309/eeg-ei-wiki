@@ -22,3 +22,5 @@
 - [S06 Sun & Mou (2023)](papers/S06.md)
 
 - [跨文獻比較](comparisons/evidence.md)
+
+- [教學基礎：從 EEG 到頻譜與 E/I](concepts/teaching-foundations.md)

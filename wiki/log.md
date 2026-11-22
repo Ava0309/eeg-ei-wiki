@@ -19,3 +19,9 @@
 - Playwright 初次找不到其內建 Chromium，切換已安裝 Chrome；沙箱啟動失敗，經授權執行成功。指數圖自動縱軸縮放掩蓋斜率差異，改固定範圍並加入畫布變化檢查，重測通過。
 
 - GitHub Pages 初次 built；公開網址經 Chrome 實際開啟並完成同一套瀏覽器測試，errors 0、failures 0。公開前改寫未推送分支的作者資訊；舊歷史保留在本機私有備份分支，內容比對相同。
+
+## 2026-11-23 — 15 頁教學品質改版
+
+- 先根據 S01–S06 補充 `concepts/teaching-foundations.md`，再建立 15 頁 evidence map、學習問題與逐頁稿；各頁保留 Wiki 與原文定位。
+- 加入合成取樣混疊、DFT、Welch、頻譜分解、參數化步驟與 exponent 圖表，以及研究比較與互動測驗。資料與示意不冒充實驗結果。
+- 製作者完成 15 頁 Teaching Quality Review，N8 獨立科學審查仍未完成。新版 N9 像素測試第一次因舊座標不適用失敗，保留輸出後修正測試；最終 lint、數學、圖表與瀏覽器結果見 `reports/teaching-redesign-20261123/`。

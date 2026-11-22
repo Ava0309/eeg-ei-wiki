@@ -38,3 +38,9 @@
 ## 發布與剩餘限制
 
 Repository：[Ava0309/eeg-ei-wiki](https://github.com/Ava0309/eeg-ei-wiki)；[Wiki](https://github.com/Ava0309/eeg-ei-wiki/tree/main/wiki)；[GitHub Pages 教學簡報](https://ava0309.github.io/eeg-ei-wiki/)。GitHub Pages 初次建置狀態為 built，公開網址已以 Chrome 開啟並執行同一套互動與版面測試，errors 0、failures 0。未完成獨立科學審查；DOI 自動檢查是格式檢查，無法單獨證明書目正確。圖表是合成資料，不是實驗數據。
+
+## 2026-11-23：15 頁教學品質改版
+
+原本 12 頁以短句與卡片為主；新版先補足 [Wiki 教學基礎](../wiki/concepts/teaching-foundations.md)，再產生 15 頁學習問題、圖解、例子、銜接及來源。新互動涵蓋取樣混疊、雙正弦與 DFT、Welch 平均、背景／候選峰與頻帶功率、參數化四步、固定座標 exponent，以及小測驗；所有曲線皆明示 Synthetic Data。
+
+[逐頁 Teaching Quality Review](teaching-redesign-20261123/teaching-quality-review.md) 是製作者自審，不是獨立科學審查。首次 N9 畫布測試因新版座標而失敗，已保留原始輸出並修正測試；後續數學、Wiki lint、15 頁 evidence／HTML、桌機與手機瀏覽器測試的實際輸出在 [teaching-redesign-20261123](teaching-redesign-20261123/)。數學測試檢查 DFT 振幅、混疊、七個 Welch 窗、PSD 積分及尺度、合成背景對 band power 的影響。瀏覽器檢查不取代真實初學者使用測試。獨立科學審查 N8 仍未完成。

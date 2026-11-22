@@ -6,13 +6,13 @@ const path = require('path');
  try {
   const page=await browser.newPage();
   await page.goto('file://'+path.resolve('index.html'));
-  for(let i=0;i<5;i++) await page.locator('#next').click();
+  for(let i=0;i<8;i++) await page.locator('#next').click();
   async function sample(beta){
    await page.locator('#beta').fill(beta);
    return page.locator('#slope').evaluate(c=>{
     const ctx=c.getContext('2d');
-    function center(x){const a=ctx.getImageData(x,25,1,c.height-50).data;let ys=[];for(let i=0;i<a.length;i+=4)if(a[i]>90&&a[i]<155&&a[i+1]>170&&a[i+2]>160)ys.push(25+i/4);return ys.length?ys.reduce((a,b)=>a+b)/ys.length:null;}
-    return {left:center(52),right:center(c.width-20)};
+    function center(x){const a=ctx.getImageData(x,15,1,c.height-65).data;let ys=[];for(let i=0;i<a.length;i+=4)if(a[i]>105&&a[i]<135&&a[i+1]>205&&a[i+1]<245&&a[i+2]>185&&a[i+2]<225)ys.push(15+i/4);return ys.length?ys.reduce((a,b)=>a+b)/ys.length:null;}
+    return {left:center(106),right:center(c.width-30)};
    });
   }
   const shallow=await sample('0.2'),steep=await sample('2.4');
