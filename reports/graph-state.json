@@ -2,6 +2,6 @@
   "node": "N9 HTML structure",
   "result": "PASS",
   "next": "N8 independent review and N10 browser QA",
-  "attempt": 2,
+  "attempt": 1,
   "note": "Programmatic gates do not certify semantic claims or browser behavior."
 }

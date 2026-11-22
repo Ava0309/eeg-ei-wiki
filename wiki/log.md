@@ -17,3 +17,5 @@
 - 六篇全文均取得，逐篇核對方法、結果、限制及引用；見 `reports/ingest-checks.md`。這是聚焦閱讀與人工對照，並非獨立科學審查。
 - Graph 第三次執行：Wiki lint 五項通過，證據地圖／HTML 結構通過，見 `reports/run-3.txt`。
 - Playwright 初次找不到其內建 Chromium，切換已安裝 Chrome；沙箱啟動失敗，經授權執行成功。指數圖自動縱軸縮放掩蓋斜率差異，改固定範圍並加入畫布變化檢查，重測通過。
+
+- GitHub Pages 初次 built；公開網址經 Chrome 實際開啟並完成同一套瀏覽器測試，errors 0、failures 0。公開前改寫未推送分支的作者資訊；舊歷史保留在本機私有備份分支，內容比對相同。

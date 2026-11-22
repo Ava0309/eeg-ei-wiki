@@ -35,4 +35,4 @@
 
 ## 發布與剩餘限制
 
-GitHub Repository 與 Pages 仍待公開後確認並填入；本報告不預先假設公開網址可用。未完成獨立科學審查；DOI 自動檢查是格式檢查，無法單獨證明書目正確。圖表是合成資料，不是實驗數據。
+Repository：[Ava0309/eeg-ei-wiki](https://github.com/Ava0309/eeg-ei-wiki)；[Wiki](https://github.com/Ava0309/eeg-ei-wiki/tree/main/wiki)；[GitHub Pages 教學簡報](https://ava0309.github.io/eeg-ei-wiki/)。GitHub Pages 初次建置狀態為 built，公開網址已以 Chrome 開啟並執行同一套互動與版面測試，errors 0、failures 0。未完成獨立科學審查；DOI 自動檢查是格式檢查，無法單獨證明書目正確。圖表是合成資料，不是實驗數據。
