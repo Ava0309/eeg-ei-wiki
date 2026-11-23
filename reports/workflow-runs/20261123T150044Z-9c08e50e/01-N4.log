@@ -1,0 +1,6 @@
+PASS source IDs unique
+PASS DOI syntax (not network validation)
+PASS at least five completed full-text ingests
+PASS wiki source IDs and links resolve
+PASS evidence map exists
+Issues: 0

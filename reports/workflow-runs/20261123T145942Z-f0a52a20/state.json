@@ -1,0 +1,63 @@
+{
+  "run_id": "20261123T145942Z-f0a52a20",
+  "previous_state": null,
+  "failure_counts": {
+    "N9:Rendered graph": 1
+  },
+  "checks": [
+    {
+      "node": "N4",
+      "check": "Wiki lint",
+      "result": "PASS",
+      "attempt": 1,
+      "return_to": null,
+      "exit_code": 0,
+      "reason": null,
+      "log": "reports/workflow-runs/20261123T145942Z-f0a52a20/01-N4.log"
+    },
+    {
+      "node": "N6/N9",
+      "check": "Evidence map and HTML structure",
+      "result": "PASS",
+      "attempt": 1,
+      "return_to": null,
+      "exit_code": 0,
+      "reason": null,
+      "log": "reports/workflow-runs/20261123T145942Z-f0a52a20/02-N6-N9.log"
+    },
+    {
+      "node": "N7/N9",
+      "check": "Teaching mathematics",
+      "result": "PASS",
+      "attempt": 1,
+      "return_to": null,
+      "exit_code": 0,
+      "reason": null,
+      "log": "reports/workflow-runs/20261123T145942Z-f0a52a20/03-N7-N9.log"
+    },
+    {
+      "node": "N8",
+      "check": "Independent scientific review snapshot",
+      "result": "SCOPED_PASS",
+      "attempt": 1,
+      "return_to": null,
+      "exit_code": 0,
+      "reason": null,
+      "log": "reports/workflow-runs/20261123T145942Z-f0a52a20/04-N8.log"
+    },
+    {
+      "node": "N9",
+      "check": "Rendered graph",
+      "result": "FAIL",
+      "attempt": 1,
+      "return_to": "N9",
+      "exit_code": 1,
+      "reason": "browserType.launch: Target page, context or browser has been closed\nBrowser logs:\n\n<launching> /Applications/Google Chrome.app/Contents/MacOS/Google Chrome --disable-field-trial-config --disable-background-networking --disable-background-timer-throttling --disable-backgrounding-occluded-windows --disable-back-forward-cache --disable-breakpad --disable-client-side-phishing-detection --disable-component-extensions-with-background-pages --disable-component-update --no-default-browser-check --disable-default-apps --disable-dev-shm-usage --disable-edgeupdater --disable-extensions --disable-features=AvoidUnnecessaryBeforeUnloadCheckSync,BoundaryEventDispatchTracksNodeRemoval,DestroyProfileOnBrowserClose,DialMediaRouteProvider,GlobalMediaControls,HttpsUpgrades,LensOverlay,MediaRouter,PaintHolding,ThirdPartyStoragePartitioning,BlockOriginHeaderModificationOnRedirect,Translate,AutoDeElevate,OptimizationHints,msForceBrowserSignIn,msEdgeUpdateLaunchServicesPreferredVersion --enable-features=CDPScreenshotNewSurface --allow-pre-commit-input --disable-hang-monitor --disable-ipc-flooding-protection --disable-popup-blocking --disable-prompt-on-repost --disable-renderer-backgrounding --disable-updater-scheduler --force-color-profile=srgb --metrics-recording-only --no-first-run --password-store=basic --use-mock-keychain --no-service-autorun --export-tagged-pdf --disable-search-engine-choice-screen --unsafely-disable-devtools-self-xss-warnings --edge-skip-compat-layer-relaunch --disable-infobars --disable-search-engine-choice-screen --disable-sync --enable-unsafe-swiftshader --headless --hide-scrollbars --mute-audio --blink-settings=primaryHoverType=2,availableHoverTypes=2,primaryPointerType=4,availablePointerTypes=4 --no-sandbox --user-data-dir=/var/folders/dc/9bpkht1s7_gcb4rw7ps74r800000gn/T/playwright_chromiumdev_profile-BE0J7Y --remote-debugging-pipe --no-startup-window\n<launched> pid=31893\nCall log:\n\u001b[2m  - <launching> /Applications/Google Chrome.app/Contents/MacOS/Google Chrome --disable-field-trial-config --disable-background-networking --disable-background-timer-throttling --disable-backgrounding-occluded-windows --disable-back-forward-cache --disable-breakpad --disable-client-side-phishing-detection --disable-component-extensions-with-background-pages --disable-component-update --no-default-browser-check --disable-default-apps --disable-dev-shm-usage --disable-edgeupdater --disable-extensions --disable-features=AvoidUnnecessaryBeforeUnloadCheckSync,BoundaryEventDispatchTracksNodeRemoval,DestroyProfileOnBrowserClose,DialMediaRouteProvider,GlobalMediaControls,HttpsUpgrades,LensOverlay,MediaRouter,PaintHolding,ThirdPartyStoragePartitioning,BlockOriginHeaderModificationOnRedirect,Translate,AutoDeElevate,OptimizationHints,msForceBrowserSignIn,msEdgeUpdateLaunchServicesPreferredVersion --enable-features=CDPScreenshotNewSurface --allow-pre-commit-input --disable-hang-monitor --disable-ipc-flooding-protection --disable-popup-blocking --disable-prompt-on-repost --disable-renderer-backgrounding --disable-updater-scheduler --force-color-profile=srgb --metrics-recording-only --no-first-run --password-store=basic --use-mock-keychain --no-service-autorun --export-tagged-pdf --disable-search-engine-choice-screen --unsafely-disable-devtools-self-xss-warnings --edge-skip-compat-layer-relaunch --disable-infobars --disable-search-engine-choice-screen --disable-sync --enable-unsafe-swiftshader --headless --hide-scrollbars --mute-audio --blink-settings=primaryHoverType=2,availableHoverTypes=2,primaryPointerType=4,availablePointerTypes=4 --no-sandbox --user-data-dir=/var/folders/dc/9bpkht1s7_gcb4rw7ps74r800000gn/T/playwright_chromiumdev_profile-BE0J7Y --remote-debugging-pipe --no-startup-window\u001b[22m\n\u001b[2m  - <launched> pid=31893\u001b[22m\n\u001b[2m  - [pid=31893] <gracefully close start>\u001b[22m\n\u001b[2m  - [pid=31893] <kill>\u001b[22m\n\u001b[2m  - [pid=31893] <will force kill>\u001b[22m\n\u001b[2m  - [pid=31893] exception while trying to kill process: Error: kill EPERM\u001b[22m\n\u001b[2m  - [pid=31893] <process did exit: exitCode=null, signal=SIGABRT>\u001b[22m\n\u001b[2m  - [pid=31893] starting temporary directories cleanup\u001b[22m\n\u001b[2m  - [pid=31893] finished temporary directories cleanup\u001b[22m\n\u001b[2m  - [pid=31893] <gracefully close end>\u001b[22m\n\n    at /Users/nccuphysics/eeg-ei-wiki/tests/render_plot.cjs:5:33\n    at Object.<anonymous> (/Users/nccuphysics/eeg-ei-wiki/tests/render_plot.cjs:23:3) {\n  log: [\n    '  - <launching> /Applications/Google Chrome.app/Contents/MacOS/Google Chrome --disable-field-trial-config --disable-background-networking --disable-background-timer-throttling --disable-backgrounding-occluded-windows --disable-back-forward-cache --disable-breakpad --disable-client-side-phishing-detection --disable-component-extensions-with-background-pages --disable-component-update --no-default-browser-check --disable-default-apps --disable-dev-shm-usage --disable-edgeupdater --disable-extensions --disable-features=AvoidUnnecessaryBeforeUnloadCheckSync,BoundaryEventDispatchTracksNodeRemoval,DestroyProfileOnBrowserClose,DialMediaRouteProvider,GlobalMediaControls,HttpsUpgrades,LensOverlay,MediaRouter,PaintHolding,ThirdPartyStoragePartitioning,BlockOriginHeaderModificationOnRedirect,Translate,AutoDeElevate,OptimizationHints,msForceBrowserSignIn,msEdgeUpdateLaunchServicesPreferredVersion --enable-features=CDPScreenshotNewSurface --allow-pre-commit-input --disable-hang-monitor --disable-ipc-flooding-protection --disable-popup-blocking --disable-prompt-on-repost --disable-renderer-backgrounding --disable-updater-scheduler --force-color-profile=srgb --metrics-recording-only --no-first-run --password-store=basic --use-mock-keychain --no-service-autorun --export-tagged-pdf --disable-search-engine-choice-screen --unsafely-disable-devtools-self-xss-warnings --edge-skip-compat-layer-relaunch --disable-infobars --disable-search-engine-choice-screen --disable-sync --enable-unsafe-swiftshader --headless --hide-scrollbars --mute-audio --blink-settings=primaryHoverType=2,availableHoverTypes=2,primaryPointerType=4,availablePointerTypes=4 --no-sandbox --user-data-dir=/var/folders/dc/9bpkht1s7_gcb4rw7ps74r800000gn/T/playwright_chromiumdev_profile-BE0J7Y --remote-debugging-pipe --no-startup-window',\n    '  - <launched> pid=31893',\n    '  - [pid=31893] <gracefully close start>',\n    '  - [pid=31893] <kill>',\n    '  - [pid=31893] <will force kill>',\n    '  - [pid=31893] exception while trying to kill process: Error: kill EPERM',\n    '  - [pid=31893] <process did exit: exitCode=null, signal=SIGABRT>',\n    '  - [pid=31893] starting temporary directories cleanup',\n    '  - [pid=31893] finished temporary directories cleanup',\n    '  - [pid=31893] <gracefully close end>'\n  ]\n}",
+      "log": "reports/workflow-runs/20261123T145942Z-f0a52a20/05-N9.log"
+    }
+  ],
+  "overall": "LOCAL_REPAIR",
+  "note": "Automated checks do not perform or certify scientific review; repair is manual.",
+  "stop_reason": null,
+  "next": "Human/agent repair at N9; resume using this state"
+}

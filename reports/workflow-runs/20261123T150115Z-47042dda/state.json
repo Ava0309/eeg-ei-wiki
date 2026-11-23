@@ -1,0 +1,77 @@
+{
+  "run_id": "20261123T150115Z-47042dda",
+  "previous_state": null,
+  "failure_counts": {},
+  "checks": [
+    {
+      "node": "N4",
+      "check": "Wiki lint",
+      "result": "PASS",
+      "attempt": 1,
+      "return_to": null,
+      "exit_code": 0,
+      "reason": null,
+      "log": "reports/workflow-runs/20261123T150115Z-47042dda/01-N4.log"
+    },
+    {
+      "node": "N6/N9",
+      "check": "Evidence map and HTML structure",
+      "result": "PASS",
+      "attempt": 1,
+      "return_to": null,
+      "exit_code": 0,
+      "reason": null,
+      "log": "reports/workflow-runs/20261123T150115Z-47042dda/02-N6-N9.log"
+    },
+    {
+      "node": "N7/N9",
+      "check": "Teaching mathematics",
+      "result": "PASS",
+      "attempt": 1,
+      "return_to": null,
+      "exit_code": 0,
+      "reason": null,
+      "log": "reports/workflow-runs/20261123T150115Z-47042dda/03-N7-N9.log"
+    },
+    {
+      "node": "N8",
+      "check": "Independent scientific review snapshot",
+      "result": "SCOPED_PASS",
+      "attempt": 1,
+      "return_to": null,
+      "exit_code": 0,
+      "reason": null,
+      "log": "reports/workflow-runs/20261123T150115Z-47042dda/04-N8.log"
+    },
+    {
+      "node": "N9",
+      "check": "Rendered graph",
+      "result": "PASS",
+      "attempt": 1,
+      "return_to": null,
+      "exit_code": 0,
+      "reason": null,
+      "log": "reports/workflow-runs/20261123T150115Z-47042dda/05-N9.log"
+    },
+    {
+      "node": "N10",
+      "check": "Desktop and mobile browser",
+      "result": "PASS",
+      "attempt": 1,
+      "return_to": null,
+      "exit_code": 0,
+      "reason": null,
+      "log": "reports/workflow-runs/20261123T150115Z-47042dda/06-N10.log"
+    }
+  ],
+  "overall": "AUTOMATED_GATES_PASS",
+  "note": "Automated checks do not perform or certify scientific review; repair is manual.",
+  "source_preflight": {
+    "node": "N1",
+    "result": "PASS",
+    "reason": null,
+    "scope": "registry and paper notes only; no network or semantic verification"
+  },
+  "stop_reason": null,
+  "next": "Review manual nodes and complete delivery"
+}

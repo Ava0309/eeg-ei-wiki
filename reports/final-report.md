@@ -50,3 +50,11 @@ Repository：[Ava0309/eeg-ei-wiki](https://github.com/Ava0309/eeg-ei-wiki)；[Wi
 [15 頁逐頁審查與修正紀錄](n8-independent-review.md) 說明六篇原文的定位、修正前 PASS／PARTIAL 判斷及 N6/N7 回退。對第 2、3、14 頁補精確來源，對第 4、5、9 頁補抗混疊前提、負頻率與無因次頻率比；另修正 Wiki 誤稱 conductance 比和 Glx/GABA+「單位不同」的表述。兩者都可無因次，差別在所比物理量與生理意義。
 
 上述核對與修正後覆核仍由曾參與製作的同一執行者完成，**N8 獨立科學審查維持 PENDING**，不得解讀為獨立通過。實際重跑的 [N4/N6/N9](n8-20261123/graph.txt)、[數學](n8-20261123/mathematics.txt)、[N9 圖表](n8-20261123/render-plot.txt)、[N10 桌機／手機](n8-20261123/browser.txt) 均通過；先前失敗與舊版紀錄未刪除。
+
+## 2026-11-23：獨立審查結案及 Workflow 整合（最新狀態）
+
+本節更新上方各歷史時點的狀態；不刪除先前失敗、測試或修正紀錄。[獨立報告](n8-independent-final.md) 的 15 頁結果與 S05 正式全文補查支持 **N8 SCOPED PASS**：針對逐頁重要主張的來源忠實度，並非六篇逐字全文審讀、研究原始資料重算或所有互動輸入的認證。S01–S04、S06 為取得全文後聚焦閱讀；S05 在後續 session 取得正式全文並核對指定方法、結果及圖。先前 PENDING 留在原紀錄作為當時狀態。N5 五題已查詢，但整體覆蓋率尚待人工評估，故不得把自動關卡通過解讀為整個研究與教學工作流程全面通過。
+
+新版 runner 的節點、回退和手動責任以 [workflow/graph.md](../workflow/graph.md) 為準。最新 [實際執行狀態](workflow-runs/20261123T150115Z-47042dda/state.json)：來源登記預檢、N4 Wiki lint、N6/N9 Evidence Map／HTML、N7/N9 數學、N9 圖表與 N10 本機桌機／手機均 PASS；N8 為人工決議 SCOPED PASS 加雜湊快照一致檢查。N10 日誌顯示 errors 0、failures 0。N8 不由程式評定，N1–N3、N5、N6/N7 製作、N8 語意審查與部署仍需人或 Agent。測試不證明來源的科學忠實度。
+
+首次整合執行中，N9 Chrome 在沙箱啟動失敗，原始[失敗狀態與輸出](workflow-runs/20261123T145942Z-f0a52a20/state.json)已保留；改為沙箱外執行後，[同一 loop 的第二次](workflow-runs/20261123T145956Z-be3249b2/state.json) N9 和 N10 通過。這是執行環境問題，不是模擬故障或投影片科學錯誤。最終 runner 更新後另行完整重跑。`python3 -m unittest discover -s tests -p 'test_graph.py'` 兩項通過；其中失敗案例是獨立臨時目錄的模擬測試，不是實際專案失敗。已執行的完整測試與截圖紀錄均保留在各 run 資料夾。

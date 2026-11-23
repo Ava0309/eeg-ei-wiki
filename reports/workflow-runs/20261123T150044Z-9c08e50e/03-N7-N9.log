@@ -1,0 +1,2 @@
+PASS: DFT amplitude, sampling alias, Welch 7 windows / PSD normalization and scaling, decomposition band effect
+PASS: signed DFT frequency mapping and dimensionless reference-normalized exponent example

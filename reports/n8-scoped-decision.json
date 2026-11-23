@@ -1,0 +1,23 @@
+{
+  "decision": "SCOPED_PASS",
+  "scope": "15 頁重要科學主張之獨立來源忠實度審查；不代表逐字全文審讀",
+  "review": "reports/n8-independent-final.md",
+  "reviewed_head": "66269cea58b88cabd9be787603db70d0dc3805ce",
+  "sha256": {
+    "index.html": "95bc4bac3753b74029fb02c33d8d5b9b9e31f79212eece5c3d3a76a9ce837eca",
+    "slides/evidence-map.json": "6ff2b26d5ce1d3404a38c601d0aecaa9663517d4455acce617a64e6fa70c6c29",
+    "raw/sources.json": "8af7af7ae692f600ca4ca8c47419b0d5848a7b13c156ae6a08e6473c7c7f994c",
+    "reports/n8-independent-final.md": "c41470762be0625899f7daf1e7523cc5c3d93053e818ca22851826aa4883c6e7",
+    "wiki/concepts/aperiodic-exponent.md": "88df120322bdcf220d575a95bf9b63376753d889820c83f0129e9ffbc6a441a5",
+    "wiki/concepts/eeg-fundamentals.md": "0492cdbc351caa9a3ca123f0e4a313b4d838094da18d33495d7da93e40f01127",
+    "wiki/concepts/eeg-machine-learning.md": "ee127bc55813c7237edac3a401e3cc5fb08fd7fcdcd57639ce342a9fe588b7e8",
+    "wiki/concepts/ei-balance.md": "8f2558ca6c7d3c5b164ff64cfa8a87771a89e54e534e6bc02ae7155f23381a7a",
+    "wiki/concepts/ei-estimation.md": "375c78a4fd65c12cdd1361230687fe4c1cf1c1b7103e90a78ec9b1d6818124ae",
+    "wiki/concepts/limitations.md": "f591acefcd598983b43441b2d01f0a2a33125815cba68eb951afb9db46a78638",
+    "wiki/concepts/periodic-aperiodic.md": "c15dc08d1d23c1a856f4e5abf51f813c3b21803facede5a5d4d4bc590891531f",
+    "wiki/concepts/sampling-psd.md": "d790a1fd3fcc67b74e5b70f4e3cc6b7bde520c6aaaac49d246aac13282a595d8",
+    "wiki/concepts/spectral-parameterization.md": "14741e18eb11ab64b05a20d057871204b6010362f40432c7367f72255b0772f4",
+    "wiki/concepts/teaching-foundations.md": "95c574f2058bb6e535b598b891b3d4b207f968fa7212ccd6ee5742de0acfc02c",
+    "wiki/comparisons/evidence.md": "6c17829722ac6c1e43d464dc6abfcf31fb003d1fd92da6ac554d02cdcbc18577"
+  }
+}

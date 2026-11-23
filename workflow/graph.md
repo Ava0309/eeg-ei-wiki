@@ -1,46 +1,56 @@
-# Graph：EEG 到 E/I 教學
+# Graph：EEG 到 E/I 教學（2026-11-23 現況）
+
+N8 的驗收是 15 頁重要科學主張的獨立來源忠實度審查；不以六篇逐字審讀為必要條件，也不聲稱已逐字審讀。獨立報告逐頁及 S05 後續結果均為 **SCOPED PASS**，限制見 [獨立審查](../reports/n8-independent-final.md)。原始 ingest 的全文取得和聚焦閱讀、逐篇紀錄仍是獨立要求。若審查過的輸入改變，runner 停下要求重新審查；雜湊只檢查快照一致，不能證明科學正確。
 
 ```mermaid
-flowchart LR
- N1["N1 逐篇取得與 Ingest"] --> N2["N2 引用核對"] --> N3["N3 整合 Wiki"] --> N4{"N4 Lint"}
- N2 -- 失敗 --> N1
- N4 -- 失敗 --> N3
- N4 -- 通過 --> N5{"N5 檢索與覆蓋"}
- N5 -- 不足 --> STOP["停止：補充資料"]
- N5 -- 通過 --> N6["N6 證據卡與大綱"] --> N7["N7 逐頁稿"] --> N8{"N8 獨立內容審查"}
- N8 -- 失敗 --> N7
- N8 -- 通過 --> N9["N9 只渲染"] --> N10{"N10 瀏覽器 QA"}
- N10 -- 排版問題 --> N9
- N10 -- 內容問題 --> N7
+flowchart TD
+ N1["N1 人工：逐篇取得全文、ingest"] --> N2["N2 人工：來源與引用核對"] --> N3["N3 人工：整合 Wiki"]
+ N3 --> P["Runner：來源登記與 paper note 存在檢查"]
+ P -- 缺少 --> STOP["STOP：保留紀錄，人工處理"]
+ P -- 已登記 --> N4{"N4：Wiki lint"}
+ N4 -- 失敗 --> FIX["LOCAL_REPAIR：人工或 Agent 局部修正"]
+ N4 -- 通過 --> N5["N5 人工：Wiki 檢索與覆蓋判斷"]
+ N5 --> N6["N6 人工：證據卡與大綱"] --> N7["N7 人工：逐頁稿"]
+ N7 --> STRUCT{"Runner：N6 Evidence Map / N9 HTML 結構"}
+ STRUCT -- 失敗 --> FIX
+ STRUCT -- 通過 --> MATH{"Runner：N7/N9 數學測試"}
+ MATH -- 失敗 --> FIX
+ MATH -- 通過 --> N8{"N8：人工獨立科學審查與快照檢查"}
+ N8 -- 未通過或快照變動 --> STOP
+ N8 -- Scoped PASS --> N9{"N9：已生成 HTML 圖表測試"}
+ N9 -- 失敗 --> FIX
+ N9 -- 通過 --> N10{"N10：桌機／手機瀏覽器測試"}
+ N10 -- 失敗 --> FIX
+ N10 -- 通過 --> DONE["自動關卡通過；人工核對其他節點與交付"]
+ FIX -- "--resume：重跑全部自動關卡" --> P
+ FIX -- "同一關卡第 3 次失敗" --> STOP
 ```
 
-| 節點 | 輸入 → 輸出 | 責任及通過條件 | 失敗回退 | 實作狀態 |
-|---|---|---|---|---|
-| N1 | 全文 → paper notes | 執行者讀取主要方法、結果與限制 | 該篇來源 | 六篇聚焦閱讀完成；非逐字審讀，見 `reports/ingest-checks.md` |
-| N2 | 原文及筆記 → 定位引用 | 執行者對照引用 | N1 | 六篇人工對照完成；程式定位詞檢查不等於語意審查 |
-| N3 | 筆記 → 概念與比較 | 保留研究差異 | N1/N2 | 九個概念頁與比較頁已建立 |
-| N4 | Wiki、metadata → lint | Python 檢查連結、ID、來源數 | N3 或 N1 | 已執行並通過；未自動核實科學內容 |
-| N5 | Wiki → 檢索與覆蓋 | 五題查詢，資料不足停止 | N3 | 五題查詢已實跑；完整覆蓋率人工評估未完成 |
-| N6 | 檢索內容 → evidence map 與大綱 | 每頁有來源定位 | N5 | 15 頁 map 與大綱已建立並通過結構檢查 |
-| N7 | 證據卡 → 逐頁稿 | 只用 Wiki 已有知識 | N6 | 15 頁逐頁稿已建立；新增內容先更新 Wiki |
-| N8 | 逐頁稿及來源 → 獨立審查 | 與製作者獨立的審查回合逐項核對 | N7/N6 | **未完成；不可標示 PASS**。既有核對由製作者執行 |
-| N9 | 逐頁稿 → HTML | 排版、互動及產物檢查，不擅改科學文字 | N7 | 已產生；目前先於 N8 完成，屬流程未閉合；N9 圖表檢查另行執行 |
-| N10 | HTML → QA 與網站 | 實際瀏覽器檢查、部署 | N9 或 N7 | 桌面、手機與公開頁已測試；範圍與結果見 `reports/final-report.md` |
+上圖同時顯示人工工作及 runner 的順序；runner 不執行 N1–N3、N5–N8 的內容製作或科學審查，也不自行呼叫 Codex 修復。N6/N9 結構檢查、N7/N9 數學測試在 N8 快照前執行；HTML 已於歷史流程先生成，本輪只檢查既有產物，不重渲染或部署。
 
-每個局部修正最多三輪；三輪仍不通過或核心資料不足即停止並保留 FAIL。`python3 scripts/graph.py` 實際執行 N4 與 N6/N9 結構檢查並依結果選擇下一狀態；它不是自動執行全部節點或自動修復。人負責其他尚未自動化的節點。
+| 節點 | 實際責任與現況 |
+|---|---|
+| N1 | 人工逐篇取得與 ingest；六篇先前聚焦閱讀完成，非逐字審讀。runner 只核對六筆登記與 paper note 存在，無法證明目前網路可用或全文已閱讀。 |
+| N2 | 人工定位引用和檢核來源；科學判斷不由程式完成。 |
+| N3 | 人工整合 Wiki 與研究差異。 |
+| N4 | runner 自動 `scripts/check.py`；檢查 ID、DOI 格式、相對連結等，非書目或語意驗證。 |
+| N5 | 查詢工具可由人執行；五題已有紀錄，**完整覆蓋率人工評估仍未完成**，runner 不執行、不假定通過。 |
+| N6 | 人工提供證據卡及定位；runner 用 `scripts/check_deck.py` 驗欄位、來源／Wiki 存在與 HTML 對應，不能判斷引文忠實。 |
+| N7 | 人工提供逐頁稿；runner 執行 `tests/teaching_math.cjs` 驗合成例及數值實作。 |
+| N8 | 獨立審查 **SCOPED PASS**，見報告；runner 只檢驗 [決議快照](../reports/n8-scoped-decision.json) 與來源登記、HTML、map、概念頁及審查報告的雜湊，不產生科學判斷。 |
+| N9 | 人工／Agent 遵照已審稿製作 HTML；runner 檢查結構，並執行 `tests/render_plot.cjs` 測固定座標的 exponent 畫布。 |
+| N10 | runner 執行 `tests/browser.cjs` 測本機 HTML 的桌機／手機及互動；公開部署、上線版本、其他瀏覽器與真實使用者評估不是本次 runner 執行範圍。 |
 
-## 實作更新（2026-11-23）
+## 執行與半自動回退
 
-`python3 scripts/graph.py --attempt 1` 依序執行現有 N4 Wiki lint 與 N6/N9 證據地圖／HTML 結構關卡；失敗時輸出指定回退節點，三次為上限。修正由操作人執行，重新執行時以 `--attempt 2` 或 `--attempt 3` 記錄；這不是自動修復。其他節點仍是人工工作。N8 的獨立科學審查尚未完成；目前僅有製作者對照來源的審查紀錄，見 `reports/content-review.md`。瀏覽器測試是另外執行的 N10。
+需 Python 3、Node.js、可被 Node 找到的 Playwright，以及測試檔指定的 macOS Chrome。依本機安裝狀況設定 `NODE_PATH`；例如本次使用 bundled Node modules。從 repository 根目錄執行：
 
-## 將圖表檢查前移
+```sh
+NODE_PATH=/path/to/node_modules python3 scripts/graph.py
+python3 scripts/graph.py --resume reports/workflow-runs/<run-id>/state.json
+python3 -m unittest discover -s tests -p 'test_graph.py'
+```
 
-`tests/render_plot.cjs` 在 N9 渲染後、完整 N10 瀏覽器 QA 前，實際調整 β 並讀取固定座標的畫布像素，確認起點近似固定且較大 β 的末端下降。此項需要 Chrome／Playwright；它是單獨執行的 N9 關卡，尚未納入 `graph.py` 的自動調度。
+每次 run 保存獨立 `state.json`、各關卡輸出與 N10 截圖於 `reports/workflow-runs/<run-id>/`，不覆寫歷史 `reports/graph-state.json`。狀態記錄節點、結果、失敗原因及輸出檔、回退目標、嘗試次數和停止條件。非零結果為真實 FAIL；人或 Agent 依輸出判斷是環境或內容問題並修復，再以 `--resume` 延續；同一關卡第 3 次失敗 STOP。來源登記／paper note 缺失、N8 審查快照不符、執行程式不存在或逾時為 BLOCKED 並 STOP，需人工處理；runner 不會以等待或自動重試當作修復。停止後，確認問題與授權後才啟動新的工作流程；不可用新 run 隱藏舊失敗。隔離單元測試內的模擬錯誤只在臨時目錄，不是實際流程錯誤。
 
-## 2026-11-23 教學改版
-
-先補充 `wiki/concepts/teaching-foundations.md`，再更新 15 頁逐頁稿與 evidence map，最後以 `scripts/render.py` 渲染。Teaching Quality Review 由製作者執行並保留逐頁理由；這不代表 N8 的獨立科學審查已完成。新增合成圖表的數值測試及桌機／手機互動測試；記錄位於 `reports/teaching-redesign-20261123/`。
-
-## 2026-11-23 N8 來源重新核對
-
-見 `reports/n8-independent-review.md`：同一對話的製作者重新核對 15 頁及原文，並將部分引用定位、取樣前提、頻率符號、冪次量綱及 Wiki 比值文字退回 N6/N7 局部修正。N9 圖表與 N10 桌機／手機已重跑，但這不是另一位未參與製作的獨立審查；**N8 仍為 PENDING**。科學內容不得因程式檢查通過而自動升為獨立 PASS。
+最新完整實際 run：[`20261123T150115Z-47042dda/state.json`](../reports/workflow-runs/20261123T150115Z-47042dda/state.json)，自動關卡均通過；本次首次 Chrome 在沙箱啟動失敗及後續沙箱外重跑分別保存在 [`20261123T145942Z-f0a52a20`](../reports/workflow-runs/20261123T145942Z-f0a52a20/state.json) 與 [`20261123T145956Z-be3249b2`](../reports/workflow-runs/20261123T145956Z-be3249b2/state.json)。歷史來源重查、局部回退及舊失敗見 [N8 製作者紀錄](../reports/n8-independent-review.md) 與 [執行報告](../reports/final-report.md)，不可把過去 PENDING 讀作當前 N8 狀態。

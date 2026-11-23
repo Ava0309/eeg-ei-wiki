@@ -1,0 +1,73 @@
+{
+  "run_id": "20261123T145956Z-be3249b2",
+  "previous_state": "/Users/nccuphysics/eeg-ei-wiki/reports/workflow-runs/20261123T145942Z-f0a52a20/state.json",
+  "failure_counts": {
+    "N9:Rendered graph": 1
+  },
+  "checks": [
+    {
+      "node": "N4",
+      "check": "Wiki lint",
+      "result": "PASS",
+      "attempt": 1,
+      "return_to": null,
+      "exit_code": 0,
+      "reason": null,
+      "log": "reports/workflow-runs/20261123T145956Z-be3249b2/01-N4.log"
+    },
+    {
+      "node": "N6/N9",
+      "check": "Evidence map and HTML structure",
+      "result": "PASS",
+      "attempt": 1,
+      "return_to": null,
+      "exit_code": 0,
+      "reason": null,
+      "log": "reports/workflow-runs/20261123T145956Z-be3249b2/02-N6-N9.log"
+    },
+    {
+      "node": "N7/N9",
+      "check": "Teaching mathematics",
+      "result": "PASS",
+      "attempt": 1,
+      "return_to": null,
+      "exit_code": 0,
+      "reason": null,
+      "log": "reports/workflow-runs/20261123T145956Z-be3249b2/03-N7-N9.log"
+    },
+    {
+      "node": "N8",
+      "check": "Independent scientific review snapshot",
+      "result": "SCOPED_PASS",
+      "attempt": 1,
+      "return_to": null,
+      "exit_code": 0,
+      "reason": null,
+      "log": "reports/workflow-runs/20261123T145956Z-be3249b2/04-N8.log"
+    },
+    {
+      "node": "N9",
+      "check": "Rendered graph",
+      "result": "PASS",
+      "attempt": 2,
+      "return_to": null,
+      "exit_code": 0,
+      "reason": null,
+      "log": "reports/workflow-runs/20261123T145956Z-be3249b2/05-N9.log"
+    },
+    {
+      "node": "N10",
+      "check": "Desktop and mobile browser",
+      "result": "PASS",
+      "attempt": 1,
+      "return_to": null,
+      "exit_code": 0,
+      "reason": null,
+      "log": "reports/workflow-runs/20261123T145956Z-be3249b2/06-N10.log"
+    }
+  ],
+  "overall": "AUTOMATED_GATES_PASS",
+  "note": "Automated checks do not perform or certify scientific review; repair is manual.",
+  "stop_reason": null,
+  "next": "Review manual nodes and complete delivery"
+}
