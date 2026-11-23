@@ -40,3 +40,7 @@ flowchart LR
 ## 2026-11-23 教學改版
 
 先補充 `wiki/concepts/teaching-foundations.md`，再更新 15 頁逐頁稿與 evidence map，最後以 `scripts/render.py` 渲染。Teaching Quality Review 由製作者執行並保留逐頁理由；這不代表 N8 的獨立科學審查已完成。新增合成圖表的數值測試及桌機／手機互動測試；記錄位於 `reports/teaching-redesign-20261123/`。
+
+## 2026-11-23 N8 來源重新核對
+
+見 `reports/n8-independent-review.md`：同一對話的製作者重新核對 15 頁及原文，並將部分引用定位、取樣前提、頻率符號、冪次量綱及 Wiki 比值文字退回 N6/N7 局部修正。N9 圖表與 N10 桌機／手機已重跑，但這不是另一位未參與製作的獨立審查；**N8 仍為 PENDING**。科學內容不得因程式檢查通過而自動升為獨立 PASS。

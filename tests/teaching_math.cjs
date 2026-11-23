@@ -8,3 +8,10 @@ let tone=Array.from({length:512},(_,i)=>.8*Math.sin(2*Math.PI*10*i/fs));let w=m.
 let s=m.syntheticSignal(),a=m.welch(s,128,128,64),scaled=m.welch(s.map(v=>2*v),128,128,64);a.average.forEach((v,i)=>near(scaled.average[i],4*v,1e-9));
 let low=m.decomposition(.5),high=m.decomposition(1.5);assert(low.band>high.band);near(low.peak[45],high.peak[45]);
 console.log('PASS: DFT amplitude, sampling alias, Welch 7 windows / PSD normalization and scaling, decomposition band effect');
+// N8 follow-up: signed DFT frequency mapping and reference-normalized power-law examples.
+const signedFrequency=(k,N,fs)=>k<=N/2?k*fs/N:(k-N)*fs/N;
+near(signedFrequency(10,128,128),10);near(signedFrequency(118,128,128),-10);
+const normalizedPower=(f,f0,p0,beta)=>p0*Math.pow(f/f0,-beta);
+near(normalizedPower(10,1,1,1),.1);near(normalizedPower(10,1,1,2),.01);
+near(Math.log10(normalizedPower(10,1,1,2)/1),-2*Math.log10(10/1));
+console.log('PASS: signed DFT frequency mapping and dimensionless reference-normalized exponent example');

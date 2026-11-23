@@ -44,3 +44,9 @@ Repository：[Ava0309/eeg-ei-wiki](https://github.com/Ava0309/eeg-ei-wiki)；[Wi
 原本 12 頁以短句與卡片為主；新版先補足 [Wiki 教學基礎](../wiki/concepts/teaching-foundations.md)，再產生 15 頁學習問題、圖解、例子、銜接及來源。DFT 位於新版第 5 頁，Machine Learning 位於新版第 14 頁。新互動涵蓋取樣混疊、雙正弦與 DFT、Welch 平均、背景／候選峰與頻帶功率、參數化四步、固定座標 exponent，以及小測驗；所有曲線皆明示 Synthetic Data。
 
 [新版 15 頁 Teaching Quality Review](teaching-redesign-20261123/teaching-quality-review.md) 是製作者教學自審，與前述舊版 12 頁來源核對不同，兩者都不是獨立科學審查。首次 N9 畫布測試因新版座標而失敗，已保留原始輸出並修正測試；後續數學、Wiki lint、15 頁 evidence／HTML、桌機與手機瀏覽器測試的實際輸出在 [teaching-redesign-20261123](teaching-redesign-20261123/)。數學測試檢查 DFT 振幅、混疊、七個 Welch 窗、PSD 積分及尺度、合成背景對 band power 的影響。瀏覽器檢查不取代真實初學者使用測試。獨立科學審查 N8 仍未完成。
+
+## 2026-11-23：N8 原始來源重新核對
+
+[15 頁逐頁審查與修正紀錄](n8-independent-review.md) 說明六篇原文的定位、修正前 PASS／PARTIAL 判斷及 N6/N7 回退。對第 2、3、14 頁補精確來源，對第 4、5、9 頁補抗混疊前提、負頻率與無因次頻率比；另修正 Wiki 誤稱 conductance 比和 Glx/GABA+「單位不同」的表述。兩者都可無因次，差別在所比物理量與生理意義。
+
+上述核對與修正後覆核仍由曾參與製作的同一執行者完成，**N8 獨立科學審查維持 PENDING**，不得解讀為獨立通過。實際重跑的 [N4/N6/N9](n8-20261123/graph.txt)、[數學](n8-20261123/mathematics.txt)、[N9 圖表](n8-20261123/render-plot.txt)、[N10 桌機／手機](n8-20261123/browser.txt) 均通過；先前失敗與舊版紀錄未刪除。

@@ -25,9 +25,10 @@
     "wiki_page": "wiki/concepts/teaching-foundations.md",
     "source_ids": [
       "S06",
+      "S02",
       "S04"
     ],
-    "source_locator": "S06 Introduction；S04 §2.1、§4.1",
+    "source_locator": "S06 Introduction；S02 #6 Why this matters；S04 §2.1、§4.1",
     "exact_claim": "EEG 是多個來源經組織傳播後的電位差混合。",
     "body": "<div class=\"split\"><div><p>神經元的電活動造成電流與電場。許多來源的貢獻經腦組織、頭骨和頭皮傳播、混合，電極讀到的是<strong>宏觀的電位差</strong>。</p><p>因此一個通道不是一顆細胞的放電，也不直接等於興奮／抑制比。</p><div class=\"insight\">直覺：遠處聽到的樂團聲音是多種樂器的混合；耳朵不會自動分離每一件樂器。</div></div><div class=\"figure\"><div class=\"diagram-stack\"><div>神經元群的電活動 <span>多個來源</span></div><div>腦組織 → 頭骨 → 頭皮 <span>傳播與混合</span></div><div>電極 A − 參考電極 R <span>一個 EEG 通道</span></div></div><small>概念示意，非研究圖像；非直接 E/I 量測。</small></div></div>",
     "bridge": "既然量到的是差值，參考點和雜訊就很重要。",
@@ -44,9 +45,9 @@
       "S06",
       "S02"
     ],
-    "source_locator": "S06 Introduction；S02 Box 1",
+    "source_locator": "S06 Introduction、§1.1.4；S02 Box 1",
     "exact_claim": "EEG 通道是電位差，訊噪比影響解讀。",
-    "body": "<div class=\"split\"><div><div class=\"formula\">x<sub>A−R</sub>(t) = V<sub>A</sub>(t) − V<sub>R</sub>(t)</div><p><b>V<sub>A</sub></b>：電極 A 電位；<b>V<sub>R</sub></b>：參考點電位；<b>x</b>：通道訊號；<b>t</b>：時間。若 A=5、R=2 μV（微伏），通道為 3 μV；換 R=1 μV 則為 4 μV。這是合成算例。</p><p>眼動、肌肉活動或電源干擾可能混進波形；前處理要依任務與品質檢查選擇。</p></div><div class=\"reference-figure\"><div class=\"electrode\">A <span>5 μV</span></div><div class=\"wire\">−</div><div class=\"electrode\">R <span>2 μV</span></div><div class=\"result\">= <b>3 μV</b><small>Synthetic Data · 電位差算例</small></div></div></div>",
+    "body": "<div class=\"split\"><div><div class=\"formula\">x<sub>A−R</sub>(t) = V<sub>A</sub>(t) − V<sub>R</sub>(t)</div><p><b>V<sub>A</sub></b>：電極 A 電位；<b>V<sub>R</sub></b>：參考點電位；<b>x</b>：通道訊號；<b>t</b>：時間。若 A=5、R=2 μV（微伏），通道為 3 μV；換 R=1 μV 則為 4 μV。這是合成算例。</p><p>眼動、肌肉活動或其他外來干擾可能混進波形；前處理要依任務與品質檢查選擇。</p></div><div class=\"reference-figure\"><div class=\"electrode\">A <span>5 μV</span></div><div class=\"wire\">−</div><div class=\"electrode\">R <span>2 μV</span></div><div class=\"result\">= <b>3 μV</b><small>Synthetic Data · 電位差算例</small></div></div></div>",
     "bridge": "接著把連續變化轉成電腦可分析的樣本。",
     "visual": "reference",
     "limitation": "教學示意與合成數值不代表研究數據；獨立科學審查仍待完成。"
@@ -61,9 +62,9 @@
       "S06",
       "S02"
     ],
-    "source_locator": "S06 Introduction、§1.1；S02 Box 1",
+    "source_locator": "S06 Introduction、§1.1；S02 Box 1；取樣例為數學推導",
     "exact_claim": "取樣率決定時間間隔，低於 Nyquist 條件可能產生混疊。",
-    "body": "<div class=\"split\"><div><p><b>Sampling（取樣）</b>是在固定時間間隔讀取訊號。取樣率 f<sub>s</sub> 是每秒樣本數（Hz），間隔 Δt=1/f<sub>s</sub> 秒。</p><p>若訊號有 10 Hz 成分，以 32 Hz 取樣可保留其頻率；以 12 Hz 取樣時，樣本也符合 2 Hz 波形：這叫 <b>aliasing（混疊）</b>。f<sub>s</sub>/2 是 Nyquist 頻率。</p><p>前處理可處理漂移及明顯干擾；濾波也會改變訊號，必須記錄選擇。</p></div><div class=\"plot-box\"><label for=\"sampling\">觀察取樣率 <output id=\"sampling-value\">32</output> Hz</label><select id=\"sampling\"><option value=\"32\">32 Hz</option><option value=\"12\">12 Hz：觀察混疊</option><option value=\"64\">64 Hz</option></select><canvas id=\"sampling-chart\" width=\"720\" height=\"300\" aria-label=\"合成十赫茲訊號與取樣點\"></canvas><div class=\"legend\"><span class=\"mint\">━ 真實示意波</span><span class=\"orange\">● 樣本</span></div><small>Synthetic Data · 10 Hz；橫軸時間（秒），縱軸振幅（任意單位）。</small><p id=\"sampling-note\" class=\"micro\"></p></div></div>",
+    "body": "<div class=\"split\"><div><p><b>Sampling（取樣）</b>是在固定時間間隔讀取訊號。取樣率 f<sub>s</sub> 是每秒樣本數（Hz），間隔 Δt=1/f<sub>s</sub> 秒。</p><p>對單一合成 10 Hz 正弦波，以 32 Hz 取樣可辨識其頻率；以 12 Hz 取樣時，樣本也符合反相的 2 Hz 波形：這叫 <b>aliasing（混疊）</b>。f<sub>s</sub>/2 是 Nyquist 頻率。</p><p>真實 EEG 是多頻率混合，取樣前須考慮抗混疊濾波。前處理可處理漂移與干擾；濾波也會改變訊號，必須記錄選擇。</p></div><div class=\"plot-box\"><label for=\"sampling\">觀察取樣率 <output id=\"sampling-value\">32</output> Hz</label><select id=\"sampling\"><option value=\"32\">32 Hz</option><option value=\"12\">12 Hz：觀察混疊</option><option value=\"64\">64 Hz</option></select><canvas id=\"sampling-chart\" width=\"720\" height=\"300\" aria-label=\"合成十赫茲訊號與取樣點\"></canvas><div class=\"legend\"><span class=\"mint\">━ 真實示意波</span><span class=\"orange\">● 樣本</span></div><small>Synthetic Data · 10 Hz；橫軸時間（秒），縱軸振幅（任意單位）。</small><p id=\"sampling-note\" class=\"micro\"></p></div></div>",
     "bridge": "取樣後，我們能把波形拆成不同頻率的成分。",
     "visual": "sampling",
     "limitation": "教學示意與合成數值不代表研究數據；獨立科學審查仍待完成。"
@@ -78,9 +79,9 @@
       "S04",
       "S06"
     ],
-    "source_locator": "S04 §2.2；S06 Introduction",
+    "source_locator": "S04 §2.2；S06 Introduction；DFT 與頻率格點為數學推導",
     "exact_claim": "DFT 將有限樣本投影到不同頻率；FFT 是計算 DFT 的演算法。",
-    "body": "<div class=\"split\"><div><p>DFT（離散傅立葉轉換）將樣本轉成頻率分量；FFT（快速傅立葉轉換）是高效計算 DFT 的演算法。時域看「何時變化」；頻域看「哪些快慢的變化佔多少」。頻率是每秒循環數，單位 Hz。</p><div class=\"formula compact\">X[k] = Σ<sub>n=0</sub><sup>N−1</sup> x[n]e<sup>−i2πkn/N</sup></div><p><b>x[n]</b>：第 n 點；<b>N</b>：點數；<b>k</b>：頻率索引；<b>i²=−1</b>。FFT 輸出的複數 X[k] 同時帶有幅值與相位；頻率格點 f<sub>k</sub>=kf<sub>s</sub>/N。</p><div class=\"insight\">例：1 秒、128 Hz 取樣，頻率格點間隔是 1 Hz。改變可調頻率成分的幅值，看波形與頻譜如何一起改變。</div></div><div class=\"plot-box\"><label for=\"mix\">可調頻率成分的振幅 <output id=\"mix-value\">0.5</output></label><input type=\"range\" id=\"mix\" min=\"0\" max=\"1\" step=\"0.1\" value=\"0.5\"><label for=\"freq\">較快成分的頻率：<output id=\"freqval\">10</output> Hz</label><input type=\"range\" id=\"freq\" min=\"5\" max=\"20\" step=\"1\" value=\"10\"><canvas id=\"wave\" width=\"720\" height=\"210\" aria-label=\"合成混合波形\"></canvas><canvas id=\"psd\" width=\"720\" height=\"210\" aria-label=\"合成混合波的傅立葉振幅\"></canvas><div class=\"legend\"><span class=\"mint\">━ 混合波</span><span class=\"orange\">━ 單側振幅</span></div><small>Synthetic Data · x(t)=sin(2π·4t)+a sin(2π·f·t)，f 為可調頻率；頻譜縱軸為振幅（任意單位）。</small></div></div>",
+    "body": "<div class=\"split\"><div><p>DFT（離散傅立葉轉換）將樣本轉成頻率分量；FFT（快速傅立葉轉換）是高效計算 DFT 的演算法。時域看「何時變化」；頻域看「哪些快慢的變化佔多少」。頻率是每秒循環數，單位 Hz。</p><div class=\"formula compact\">X[k] = Σ<sub>n=0</sub><sup>N−1</sup> x[n]e<sup>−i2πkn/N</sup></div><p><b>x[n]</b>：第 n 點；<b>N</b>：點數；<b>k</b>：頻率索引；<b>i²=−1</b>。FFT 輸出的複數 X[k] 同時帶有幅值與相位；當 0≤k≤N/2 時頻率格點 f<sub>k</sub>=kf<sub>s</sub>/N；N/2&lt;k&lt;N 對應負頻率 (k−N)f<sub>s</sub>/N。</p><div class=\"insight\">例：1 秒、128 Hz 取樣，頻率格點間隔是 1 Hz。改變可調頻率成分的幅值，看波形與頻譜如何一起改變。</div></div><div class=\"plot-box\"><label for=\"mix\">可調頻率成分的振幅 <output id=\"mix-value\">0.5</output></label><input type=\"range\" id=\"mix\" min=\"0\" max=\"1\" step=\"0.1\" value=\"0.5\"><label for=\"freq\">較快成分的頻率：<output id=\"freqval\">10</output> Hz</label><input type=\"range\" id=\"freq\" min=\"5\" max=\"20\" step=\"1\" value=\"10\"><canvas id=\"wave\" width=\"720\" height=\"210\" aria-label=\"合成混合波形\"></canvas><canvas id=\"psd\" width=\"720\" height=\"210\" aria-label=\"合成混合波的傅立葉振幅\"></canvas><div class=\"legend\"><span class=\"mint\">━ 混合波</span><span class=\"orange\">━ 單側振幅</span></div><small>Synthetic Data · x(t)=sin(2π·4t)+a sin(2π·f·t)，f 為可調頻率；頻譜縱軸為振幅（任意單位）。</small></div></div>",
     "bridge": "接下來將幅值轉成可比較的功率密度。",
     "visual": "fourier",
     "limitation": "教學示意與合成數值不代表研究數據；獨立科學審查仍待完成。"
@@ -149,7 +150,7 @@
     ],
     "source_locator": "S01 Methods；S02 Fig. 1；S05 Discussion",
     "exact_claim": "固定模型的 log-log 斜率是 −β，β 不是直接 E/I 比。",
-    "body": "<div class=\"split\"><div><div class=\"formula\">P(f) = A / f<sup>β</sup></div><p><b>f</b>：頻率（Hz）；<b>P(f)</b>：功率密度；<b>A</b>：在此模型的比例尺度；<b>β</b>：無因次指數。對兩側取 log₁₀：log₁₀P=log₁₀A−βlog₁₀f，因此斜率為 −β。</p><p>合成算例：A=1、β=1 時，f=10 Hz 的 P=0.1；β=2 時 P=0.01。這只說明模型形狀，<strong>不給出 E/I 比</strong>。</p></div><div class=\"plot-box\"><label for=\"beta\">改變 exponent β <output id=\"betaval\">1.5</output></label><input id=\"beta\" type=\"range\" min=\"0\" max=\"3\" step=\"0.1\" value=\"1.5\"><canvas id=\"slope\" width=\"720\" height=\"330\" aria-label=\"固定座標的合成對數頻譜\"></canvas><div class=\"legend\"><span class=\"mint\">━ 非週期背景</span></div><small>Synthetic Data · A=1；橫、縱軸均為 log₁₀，範圍固定。</small></div></div>",
+    "body": "<div class=\"split\"><div><div class=\"formula\">P(f) = P<sub>0</sub> (f / f<sub>0</sub>)<sup>−β</sup></div><p><b>f</b>：頻率；<b>f<sub>0</sub></b>：參考頻率（與 f 同單位）；<b>P(f)</b>：功率密度；<b>P<sub>0</sub></b>：f<sub>0</sub> 的功率密度；<b>β</b>：無因次指數。log₁₀(P/P<sub>0</sub>)=−β log₁₀(f/f<sub>0</sub>)，斜率為 −β。</p><p>合成算例：f<sub>0</sub>=1 Hz、P<sub>0</sub>=1（任意功率密度單位），f=10 Hz 時，β=1 得 P=0.1、β=2 得 P=0.01。這只說明模型形狀，<strong>不給出 E/I 比</strong>。</p></div><div class=\"plot-box\"><label for=\"beta\">改變 exponent β <output id=\"betaval\">1.5</output></label><input id=\"beta\" type=\"range\" min=\"0\" max=\"3\" step=\"0.1\" value=\"1.5\"><canvas id=\"slope\" width=\"720\" height=\"330\" aria-label=\"固定座標的合成對數頻譜\"></canvas><div class=\"legend\"><span class=\"mint\">━ 非週期背景</span></div><small>Synthetic Data · f₀=1 Hz、P₀=1；兩軸為無因次比值的 log₁₀，範圍固定。</small></div></div>",
     "bridge": "現在才來區分 exponent 和生理意義。",
     "visual": "exponent",
     "limitation": "教學示意與合成數值不代表研究數據；獨立科學審查仍待完成。"
@@ -166,7 +167,7 @@
     ],
     "source_locator": "S04 §2.1；S03 MRS-based E/I ratio",
     "exact_claim": "conductance、EEG 頻譜與 MRS 代謝物比是不同物理量。",
-    "body": "<p class=\"lede\">興奮性與抑制性輸入共同影響神經元活動。<b>Conductance（電導）</b>描述離子通道在電位差下導電的容易程度；它不是代謝物濃度。</p><div class=\"measure-map\"><div><span>模型中的生理量</span><b>g<sub>E</sub> / g<sub>I</sub></b><small>興奮／抑制的突觸電導比</small></div><div class=\"arrow\">模型假設<br>⇢</div><div><span>電生理特徵</span><b>EEG／LFP 頻譜</b><small>LFP 是局部場電位；時間變化可轉成頻譜</small></div><div class=\"arrow\">關聯檢驗<br>⇄</div><div><span>MR 波譜</span><b>Glx / GABA+</b><small>腦區代謝物濃度指標</small></div></div><p class=\"insight\">箭頭代表研究假設或關聯比較，<strong>不是等號</strong>。MRS（磁振波譜）利用 MR 訊號估計選定腦區的代謝物濃度。MRS 的 Glx 含 glutamate＋glutamine；GABA+ 也含共編輯巨分子。</p>",
+    "body": "<p class=\"lede\">興奮性與抑制性輸入共同影響神經元活動。<b>Conductance（電導）</b>描述離子通道在電位差下導電的容易程度；它不是代謝物濃度。</p><div class=\"measure-map\"><div><span>模型中的生理量</span><b>⟨g<sub>E</sub>⟩ / ⟨g<sub>I</sub>⟩</b><small>模型中興奮／抑制突觸電導的時間平均值之比</small></div><div class=\"arrow\">模型假設<br>⇢</div><div><span>電生理特徵</span><b>EEG／LFP 頻譜</b><small>LFP 是局部場電位；時間變化可轉成頻譜</small></div><div class=\"arrow\">關聯檢驗<br>⇄</div><div><span>MR 波譜</span><b>Glx / GABA+</b><small>腦區代謝物濃度指標</small></div></div><p class=\"insight\">箭頭代表研究假設或關聯比較，<strong>不是等號</strong>。MRS（磁振波譜）利用 MR 訊號估計選定腦區的代謝物濃度。MRS 的 Glx 含 glutamate＋glutamine；GABA+ 也含共編輯巨分子。</p>",
     "bridge": "先看提出斜率與 E/I 關係的模型。",
     "visual": "measurement",
     "limitation": "教學示意與合成數值不代表研究數據；獨立科學審查仍待完成。"
@@ -229,7 +230,7 @@
       "S06",
       "S02"
     ],
-    "source_locator": "S06 Introduction、§1.1.2、§4；S02 Fig. 3",
+    "source_locator": "S06 Introduction、§1.1.2、§3.1、§4；S02 Fig. 3",
     "exact_claim": "依受試者分組能評估跨人泛化，避免相似片段跨集合。",
     "body": "<p><b>假想任務：</b>依 EEG 預測試次是左手或右手動作想像；這是教學設計，不是論文報告的模型績效。</p><div class=\"ml-grid\"><div><span>01 / FEATURES</span><b>X = [峰頻率, β]</b><small>例如候選 alpha 峰頻率與 exponent；無峰時要預先規定缺失處理。</small></div><div><span>02 / LABEL</span><b>y = 左 / 右</b><small>標籤由實驗任務提供，不由 E/I 推測。</small></div><div><span>03 / SPLIT FIRST</span><b>依受試者分組</b><small>重疊片段與增強樣本不可跨組。</small></div><div><span>04 / EVALUATE</span><b>訓練 → 驗證 → 測試</b><small>只用訓練組擬合標準化和分類器；驗證調設定，測試受試者留到最後。</small></div></div><div class=\"insight\">模型能分類不等於量到了突觸 E/I；背景與峰仍需分開解讀。</div>",
     "bridge": "用跨研究比較與小測驗整理你的推論。",

@@ -6,7 +6,7 @@ E/I 描述興奮與抑制作用的關係；依實驗可指不同量。模型中�
 
 ## 區分兩種比值
 
-Gao 的模型使用 mean(gE)/mean(gI)：gE 和 gI 是模型中的興奮與抑制 conductance；Cochrane 的 MRS 指標是 Glx/GABA+，兩者單位與來源不同。
+Gao 的模型使用 mean(gE)/mean(gI)：gE 和 gI 是模型中的興奮與抑制 conductance；Cochrane 的 MRS 指標是 Glx/GABA+，兩者所比物理量與生理意義不同；各自用相同單位相除時都可為無因次比值。
 
 **直觀例子：** 即使兩種指標相關，也不能把某個 Glx/GABA+ 數字直接當作突觸 conductance 比。
 

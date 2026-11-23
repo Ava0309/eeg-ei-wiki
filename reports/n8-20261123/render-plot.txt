@@ -1,0 +1,12 @@
+{
+  "gate": "N9 fixed-axis exponent rendering",
+  "shallow": {
+    "left": 24,
+    "right": 39.5
+  },
+  "steep": {
+    "left": 25.5,
+    "right": 213
+  },
+  "result": "PASS"
+}
