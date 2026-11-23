@@ -42,3 +42,21 @@
 完成以上逐頁初判後，才讀取 `reports/n8-independent-review.md`。該報告審查基準為較早的 `7631b06`，並記錄其後同一製作者的局部修正；本次對 `66269ce` 的現有內容評分，兩個表格不可當成同一版本的直接比較。對修正後第 2–5、9、10、14 頁的科學內容，我的 PASS 與製作者再次核對的內容初判一致；第 6–8、11–12 頁亦無實質歧見。雙方都將整體 N8 保持 PENDING，且都區分科學審查與程式檢查。
 
 差異在證據範圍與原因：既有報告稱當時取得 S05 PMC 全文，並將第 1、13、15 頁內容初判 PASS；本次實際只取得其摘要與 Discussion 的索引文字，無法獨立複核手術、分析及圖表，所以這三頁暫為 PARTIAL。製作者先前因參與製作而保留獨立性限制；本次為獨立 session，仍因原文核對範圍不全而 PENDING，不能用先前報告替代本次原文查核。
+
+## 後續追加：S05 正式全文核對（2026-11-23）
+
+本次只延續 S05 未完成的查核。期刊[正式全文頁](https://journals.physiology.org/doi/full/10.1152/jn.00445.2023)透過網頁檢索回傳 HTTP 403；PMC 於相同檢索方式仍顯示 reCAPTCHA。但透過瀏覽器成功開啟並閱讀 [PMC 收錄的正式期刊全文](https://pmc.ncbi.nlm.nih.gov/articles/PMC11305649/)，核對 Methods「EEG Surgery」「EEG Recording」「Drugs」「DREADDs」「EEG Analysis」、Results、Discussion 與 Fig. 1、2、6 的圖及圖說，另參照 Fig. 4 的 ketamine 結果。前述存取限制與原先 PARTIAL 初判保留作歷史；本次結果更新如下。
+
+- **電極與狀態**：EEG Surgery 說明雙側額葉與頂葉硬腦膜外螺絲電極，小腦上方螺絲為參考；EEG Analysis 明定藥物分析使用右側頂葉電極的 5 分鐘 active-wake EEG。EEG Recording 說明錄影確認行為狀態。大多數藥物的分析時段約注射後 30 分鐘；若鎮靜則約 1 小時後。這是活動清醒時的皮質電極記錄，並非人類頭皮 EEG。
+- **分析方法**：EEG Analysis 描述 5 秒分段、多錐窗頻譜，並以 FOOOF knee 模式分析 2–100 Hz；峰設定依操弄類別不同，在同一動物條件內保持一致。因此指數是此模型及頻段的參數，不能直接等同量得的突觸比。
+- **Pentobarbital／diazepam**：Results「GABAAR-Positive Allosteric Modulators Increase Aperiodic Exponent」與 Fig. 1C、2C–D 顯示，分別為 15 與 1 mg/kg 時，active-wake 頂葉頻譜的指數增加，方向符合作者的抑制假說；資料中也有 offset 變化，不能把所有變化單歸因於唯一機制。
+- **Ketamine**：Results「Ketamine, a Putative Agent of Cortical Disinhibition, Fails to Change the Aperiodic Exponent」及 Fig. 4C–D 顯示，10 mg/kg 亞麻醉劑量、15 隻小鼠的 exponent 未見變化，儘管週期成分改變；未觀察到變化不證明真實效應為零。120 mg/kg 麻醉劑量的小樣本及狀態不同，不能與此直接混同。
+- **Gi DREADD**：Methods「DREADDs」、Results「Chemogenetic Disinhibition Fails to Decrease Aperiodic Exponent」、Fig. 6D–E：對表現 hM4D(Gi) 的 parvalbumin 陽性中間神經元施予 DCZ 後，exponent **增加**，與作者預測的下降方向相反，而非單純沒有變化。Discussion 指出病毒表現可能遍及腦內、網路與行為狀態均限制生理解讀；不等於直接測得突觸 E/I 比。
+
+### 第 1、13、15 頁重新評估
+
+- **第 1 頁：PASS**（取代前述 PARTIAL 的本次判斷）。S05 Discussion 支持頻譜指數需經跨證據比較，不能視為普遍可靠的 E/I 直接量測；其他既核對的 S01、S03 證據保持不變。
+- **第 13 頁：PASS**。硬腦膜外電極、活動清醒、pentobarbital／diazepam 增加及 ketamine／Gi DREADD 不符合預期方向均獲上述 Methods、Results 與 Fig. 1、2、4、6 支持。現有「部分結果沒有依假說預期改變」涵蓋 Gi 的反向增加，但較不具體；不是必須修正的科學錯誤。
+- **第 15 頁：PASS**。S05 的小鼠皮質 EEG 操弄與反例、行為狀態限制經全文核對，與先前核對的 S03、S04 合併後支持此頁審慎比較；研究間差異不能消除其對相同假說所形成的實質張力。
+
+**整體 N8：PENDING。** S05 指定核對已完成，上述三頁在原先逐頁核對範圍內改為 PASS，未發現需修改 HTML、Wiki 或程式的具體科學錯誤。整體不升為 PASS，因先前報告已明記 S01–S04、S06 僅以相關段落為主，未完成使用者原先要求的五篇逐字全文閱讀；本次依指示僅處理 S05，未補做其他來源。互動圖的全部運行數值與補充資料亦未在本次重新驗證。
